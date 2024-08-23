@@ -1,13 +1,12 @@
-
 // Colors
-$primary-color: #000;
-$secondary-color: #000;
+$primary-color: #fff;
+$secondary-color: #fcf8f3;
 $white: #fff;
 $black: #000;
 
 // Fonts
-$primary-font: 1rem;
-$secondary-font: 1rem;
+$primary-font-size: 1rem;
+$secondary-font-size: 1rem;
 $font-size-1rem: 1rem;
 $font-size-2rem: 2rem;
 $font-size-3rem: 3rem;
@@ -20,3 +19,6 @@ $font-weight-500: 500;
 $font-weight-600: 600;
 $font-weight-900: 900;
 
+// Font Family
+$font-family-primary: "Poppins", "Source sarif pro", sans-serif;
+$font-family-secondary: "Source sarif pro", "Poppins", sans-serif;

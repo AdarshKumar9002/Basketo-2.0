@@ -1,0 +1,113 @@
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: $primary-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 1em;
+  svg {
+    width: 25px;
+  }
+}
+.logo {
+  a {
+    color: $black;
+    span {
+      color: red;
+    }
+    span + span {
+      color: blueviolet;
+    }
+  }
+}
+
+// User Interactions
+.user-interactions {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 3em;
+  position: fixed;
+  left: 0;
+  top: 94dvh;
+  width: 100%;
+  background: $secondary-color;
+  padding: 0.5em 1em;
+}
+
+// Tablet Style
+
+@media screen and (min-width: 768px) {
+  header {
+    justify-content: space-between;
+    padding: 0.5em 1em;
+    svg {
+      width: 25px;
+    }
+  }
+
+  // User Interactions
+  .user-interactions {
+    background: $primary-color;
+    justify-content: flex-end;
+    gap: 1.5em;
+    position: static;
+    width: auto;
+    padding: 0;
+
+    + button {
+      display: none;
+    }
+  }
+}
+
+// Desktop 1024px
+
+@media screen and (min-width: 1024px) {
+  header {
+    justify-content: space-around;
+    svg {
+      width: 30px;
+    }
+  }
+
+  // User Interactions
+  .user-interactions {
+    gap: 2.4em;
+  }
+}
+
+
+// Desktop 1280px
+@media screen and (min-width: 1280px) {
+  header {
+    justify-content: space-around;
+    svg {
+      width: 30px;
+    }
+  }
+
+  // User Interactions
+  .user-interactions {
+    gap: 2.8em;
+  }
+}
+
+
+// Desktop 1400px
+@media screen and (min-width: 1400px) {
+  header {
+    justify-content: space-around;
+    svg {
+      width: 30px;
+    }
+  }
+
+  // User Interactions
+  .user-interactions {
+    gap: 3em;
+  }
+}

@@ -2,7 +2,23 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  box-sizing: content-box;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: local("Poppins"), url("../../../fonts/Poppins/Poppins-Regular.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro"), url("../../../fonts/Source_Code_Pro/static/SourceCodePro-Regular.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  font-family: "Poppins", "Source sarif pro", sans-serif;
 }
 
 a {
@@ -16,6 +32,197 @@ a {
 button {
   border: none;
   background: transparent;
+}
+
+.btn-primary {
+  background: red;
+  font-size: 1px;
+  font-weight: bold;
+  font-family: "Poppins", "Source sarif pro", sans-serif;
+  border-radius: 2px;
+  text-align: center;
+  padding: 0;
+}
+
+.btn-secondary {
+  background: red;
+  font-size: 1px;
+  font-weight: bold;
+  font-family: "Poppins", "Source sarif pro", sans-serif;
+  border-radius: 2px;
+  text-align: center;
+  padding: 0;
+}
+
+header nav {
+  height: 100dvh;
+  background: #fff;
+  width: 50%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateX(100%);
+  transition: 2ms ease-in-out;
+}
+header nav > button {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
+header nav ul {
+  margin-top: 1em;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+}
+header nav li {
+  background: #fcf8f3;
+}
+header nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3em;
+  color: #000;
+  font-size: 1rem;
+}
+header nav img {
+  width: 3.75em;
+  height: 3.75em;
+}
+
+@media screen and (min-width: 768px) {
+  header nav {
+    height: auto;
+    width: auto;
+    position: static;
+    transform: translateX(0%);
+  }
+  header nav > button {
+    display: none;
+  }
+  header nav ul {
+    margin-top: 0;
+    flex-direction: row;
+  }
+  header nav li {
+    background: #fff;
+  }
+  header nav img {
+    width: 2em;
+    height: 2em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  header nav ul {
+    gap: 4em;
+  }
+  header nav img {
+    width: 2.5em;
+    height: 2.5em;
+  }
+}
+@media screen and (min-width: 1280px) {
+  header nav ul {
+    gap: 4.5em;
+  }
+  header nav img {
+    width: 3em;
+    height: 3em;
+  }
+}
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 1em;
+}
+header svg {
+  width: 25px;
+}
+
+.logo a {
+  color: #000;
+}
+.logo a span {
+  color: red;
+}
+.logo a span + span {
+  color: blueviolet;
+}
+
+.user-interactions {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 3em;
+  position: fixed;
+  left: 0;
+  top: 94dvh;
+  width: 100%;
+  background: #fcf8f3;
+  padding: 0.5em 1em;
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    justify-content: space-between;
+    padding: 0.5em 1em;
+  }
+  header svg {
+    width: 25px;
+  }
+  .user-interactions {
+    background: #fff;
+    justify-content: flex-end;
+    gap: 1.5em;
+    position: static;
+    width: auto;
+    padding: 0;
+  }
+  .user-interactions + button {
+    display: none;
+  }
+}
+@media screen and (min-width: 1024px) {
+  header {
+    justify-content: space-around;
+  }
+  header svg {
+    width: 30px;
+  }
+  .user-interactions {
+    gap: 2.4em;
+  }
+}
+@media screen and (min-width: 1280px) {
+  header {
+    justify-content: space-around;
+  }
+  header svg {
+    width: 30px;
+  }
+  .user-interactions {
+    gap: 2.8em;
+  }
+}
+@media screen and (min-width: 1400px) {
+  header {
+    justify-content: space-around;
+  }
+  header svg {
+    width: 30px;
+  }
+  .user-interactions {
+    gap: 3em;
+  }
 }
 
 /*# sourceMappingURL=home.css.map */
