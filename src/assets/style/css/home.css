@@ -137,6 +137,7 @@ header {
   position: fixed;
   left: 0;
   top: 0;
+  z-index: 999;
   width: 100%;
   background: #fff;
   display: flex;
@@ -223,6 +224,102 @@ header svg {
   .user-interactions {
     gap: 3em;
   }
+}
+.carousel {
+  position: relative;
+  margin-top: 3.46em;
+  overflow: hidden;
+  height: 15.6255em;
+}
+
+.carousel__track {
+  position: relative;
+  height: 100%;
+}
+
+.carousel__slides {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.carousel__slides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel__controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  z-index: 99;
+  display: none;
+  justify-content: space-between;
+}
+.carousel__controls button svg {
+  fill: #000;
+  width: 20px;
+}
+
+.carousel__dotControls {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+.carousel__dotControls button {
+  background-color: #eee;
+  border-radius: 50%;
+  width: 0.8em;
+  height: 0.8em;
+  cursor: pointer;
+}
+.carousel__dotControls button.carousel__currentImage {
+  background-color: rgba(9, 7, 7, 0.7019607843);
+}
+
+@media screen and (min-width: 768px) {
+  .carousel {
+    margin-top: 4.46em;
+  }
+  .carousel__controls {
+    display: flex;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .carousel {
+    margin-top: 5em;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .carousel {
+    margin-top: 5.2em;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .carousel {
+    margin-top: 5.2em;
+  }
+}
+.categories-card h3 {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.categories-card__container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(2, auto);
+  gap: 1em;
+}
+
+.categories-card__item {
+  text-align: center;
 }
 
 /*# sourceMappingURL=home.css.map */

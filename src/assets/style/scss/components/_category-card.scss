@@ -1,0 +1,17 @@
+.categories-card {
+    h3{
+        margin-top: 1em;
+        margin-bottom: 1em;
+        text-align: center;
+    }
+}
+// Card Container
+.categories-card__container{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, auto);
+    gap: 1em;
+}
+.categories-card__item {
+    text-align: center;
+}

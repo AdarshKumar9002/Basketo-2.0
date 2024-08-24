@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
-    <meta name="keywords" content="HTML, CSS, JavaScript, meta tags" />
+    <meta name="keywords" content="t-shirt, dress, shoes" />
     <meta name="author" content="Adarsh" />
     <meta name="theme-color" content="#4285f4" />
 
@@ -169,125 +169,113 @@
     <!-- ========== Carousel ========== -->
     <section class="carousel" aria-label="Carousel">
       <!-- == Carousel Slides == -->
-      <ul>
-        <li class="Carousel__slides" aria-label="slide 1 of 3">
+      <ul class="carousel__track">
+        <li class="carousel__slides" aria-hidden="false">
           <picture>
             <source
-              srcset="https://placehold.co/600x400"
-              width="100%"
+              srcset="./assets/img/Women's-collection-banner.avif"
               height="400"
-              aria-hidden="true"
               type="image/avif"
             />
             <source
-              srcset="https://placehold.co/600x400"
-              width="100%"
+              srcset="./assets/img/Women's-collection-banner.webp"
               height="400"
-              aria-hidden="true"
               type="image/webp"
             />
-            <source
-              srcset="https://placehold.co/600x400"
-              width="100%"
-              height="400"
-              aria-hidden="true"
-              type="image/jpeg"
-            />
             <img
-              src="https://placehold.co/600x400"
-              width="100%"
+              src="./assets/img/Women's-collection-banner.jpg"
               height="400"
-              aria-hidden="true"
-              alt=""
+              alt="A woredrobe full of women's clothes"
             />
           </picture>
           <div class="carousel__slidesInfo">
-            <h3>Carousel Item Heading</h3>
+            <h3>Women</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
               cum!
             </p>
-            <button aria-label="See more detail about slide 1">See More</button>
+            <button>See More</button>
           </div>
         </li>
-        <li class="Carousel__slides" aria-label="slide 2 of 3">
+        <li class="carousel__slides" aria-hidden="true">
           <picture>
             <source
-              srcset="https://placehold.co/600x400"
-              width="100%"
+              srcset="./assets/img/men's-collection-banner.avif"
               height="400"
-              aria-hidden="true"
               type="image/avif"
             />
             <source
-              srcset="https://placehold.co/600x400"
-              width="100%"
+              srcset="./assets/img/men's-collection-banner.webp"
               height="400"
-              aria-hidden="true"
               type="image/webp"
             />
-            <source
-              srcset="https://placehold.co/600x400"
-              width="100%"
-              height="400"
-              aria-hidden="true"
-              type="image/jpeg"
-            />
             <img
-              src="https://placehold.co/600x400"
-              width="100%"
+              src="./assets/img/men's-collection-banner.jpg"
               height="400"
-              aria-hidden="true"
-              alt=""
+              alt="A woredrobe full of men's clothes"
             />
           </picture>
           <div class="carousel__slidesInfo">
-            <h3>Carousel Item Heading</h3>
+            <h3>Men</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
               cum!
             </p>
-            <button aria-label="See more detail about slide 2">See More</button>
+            <button>See More</button>
           </div>
         </li>
-        <li class="Carousel__slides" aria-label="slide 3 of 3">
+        <li class="carousel__slides" aria-hidden="true">
           <picture>
             <source
-              srcset="https://placehold.co/600x400"
-              width="100%"
+              srcset="./assets/img/jewelry-banner.avif"
               height="400"
-              aria-hidden="true"
               type="image/avif"
             />
             <source
-              srcset="https://placehold.co/600x400"
-              width="100%"
+              srcset="./assets/img/jewelry-banner.webp"
               height="400"
-              aria-hidden="true"
               type="image/webp"
             />
-            <source
-              srcset="https://placehold.co/600x400"
-              width="100%"
-              height="400"
-              aria-hidden="true"
-              type="image/jpeg"
-            />
             <img
-              src="https://placehold.co/600x400"
-              width="100%"
+              src="./assets/img/jewelry-banner.jpeg"
               height="400"
-              aria-hidden="true"
-              alt=""
+              alt="Jewelery are put on the beach"
             />
           </picture>
           <div class="carousel__slidesInfo">
-            <h3>Carousel Item Heading</h3>
+            <h3>Jewelry</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
               cum!
             </p>
-            <button aria-label="See more detail about slide 3">See More</button>
+            <button>See More</button>
+          </div>
+        </li>
+        <li class="carousel__slides" aria-hidden="true">
+          <picture>
+            <source
+              srcset="./assets/img/furniture-carousel-banner.avif"
+              height="400"
+              type="image/avif"
+            />
+            <source
+              srcset="./assets/img/furniture-carousel-banner.webp"
+              height="400"
+              type="image/webp"
+            />
+            <img
+              src="./assets/img/furniture-carousel-banner.jpg"
+              height="400"
+              alt="A room with furnitures"
+            />
+          </picture>
+          <div class="carousel__slidesInfo">
+            <h3>Furniture</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
+              cum!
+            </p>
+            <button>See More</button>
           </div>
         </li>
       </ul>
@@ -296,46 +284,88 @@
       <ul class="carousel__controls">
         <li>
           <button aria-label="Preview Button">
-            <img src="https://placehold.co/40" width="40" height="40" alt="" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 384 512"
+              class="icon-prev"
+            >
+              <path
+                d="M380.6 81.7c7.9 15.8 1.5 35-14.3 42.9L103.6 256 366.3 387.4c15.8 7.9 22.2 27.1 14.3 42.9s-27.1 22.2-42.9 14.3l-320-160C6.8 279.2 0 268.1 0 256s6.8-23.2 17.7-28.6l320-160c15.8-7.9 35-1.5 42.9 14.3z"
+              />
+            </svg>
           </button>
         </li>
         <li>
           <button aria-label="Next Button">
-            <img src="https://placehold.co/40" width="40" height="40" alt="" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 384 512"
+              class="icon-next"
+            >
+              <path
+                d="M3.4 81.7c-7.9 15.8-1.5 35 14.3 42.9L280.5 256 17.7 387.4C1.9 395.3-4.5 414.5 3.4 430.3s27.1 22.2 42.9 14.3l320-160c10.8-5.4 17.7-16.5 17.7-28.6s-6.8-23.2-17.7-28.6l-320-160c-15.8-7.9-35-1.5-42.9 14.3z"
+              />
+            </svg>
           </button>
         </li>
       </ul>
 
       <!-- == Carousel Indictor/Dot Controls == -->
       <ul class="carousel__dotControls">
-        <li><button aria-labelledby="currentSlideInfo">1</button></li>
-        <li><button aria-labelledby="currentSlideInfo">2</button></li>
-        <li><button aria-labelledby="currentSlideInfo">3</button></li>
-        <span id="currentSlideInfo">You are on <span></span>Slide</span>
+        <li>
+          <button
+            class="carousel__currentImage"
+            aria-labelledby="currentSlideInfo"
+          ></button>
+        </li>
+        <li><button aria-labelledby="currentSlideInfo"></button></li>
+        <li><button aria-labelledby="currentSlideInfo"></button></li>
+        <li><button aria-labelledby="currentSlideInfo"></button></li>
+        <li>
+          <span id="currentSlideInfo" class="visibility-hidden"
+            >You are on <span>1</span>Slide</span
+          >
+        </li>
       </ul>
     </section>
 
     <!-- ========== Main ========== -->
     <main>
       <!-- == Top Categories == -->
-      <section aria-label="Categories Cards">
+      <section class="categories-card" aria-label="Categories Cards">
         <h3>Categories</h3>
-        <div role="">
-          <div role="group" aria-label="Women's Clothing Category Card">
-            <img src="#" alt="" width="" height="" />
-            <h4>Women's Clothing</h4>
+        <div class="categories-card__container" role="">
+          <div
+            class="categories-card__item"
+            role="group"
+            aria-label="Women's Clothing Category Card"
+          >
+            <a href="#"><img src="#" alt="" width="120" height="151" /></a>
+            <a href="#"><h4>Women's Clothing</h4></a>
           </div>
-          <div role="group" aria-label="Men's Clothing Category Card">
-            <img src="#" alt="" width="" height="" />
-            <h4>Men's Clothing</h4>
+          <div
+            class="categories-card__item"
+            role="group"
+            aria-label="Men's Clothing Category Card"
+          >
+            <a href="#"><img src="#" alt="" width="120" height="151" /></a>
+            <a href="#"><h4>Men's Clothing</h4></a>
           </div>
-          <div role="group" aria-label="Kid's Clothing Category Card">
-            <img src="#" alt="" width="" height="" />
-            <h4>Kid's Clothing</h4>
+          <div
+            class="categories-card__item"
+            role="group"
+            aria-label="Kid's Clothing Category Card"
+          >
+            <a href="#"><img src="#" alt="" width="120" height="151" /></a>
+            <a href="#"><h4>Kid's Clothing</h4></a>
           </div>
-          <div role="group" aria-label="Mobiles Category Card">
-            <img src="#" alt="" width="" height="" />
-            <h4>Mobiles</h4>
+          <div
+            class="categories-card__item"
+            role="group"
+            aria-label="Mobiles Category Card"
+          >
+            <a href="#"><img src="#" alt="" width="120" height="151" /></a>
+            <a href="#"><h4>Mobiles</h4></a>
           </div>
         </div>
       </section>
