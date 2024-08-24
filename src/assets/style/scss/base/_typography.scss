@@ -1,6 +1,16 @@
 h1{}
 h2{}
-h3{}
-h4{}
+h3{
+    font-size: $primary-font-size;
+    font-family: $font-family-poppins-bold;
+    color: $primary-color;
+
+}
+h4{
+    
+    font-size: $font-size-s;
+    font-family: $font-family-poppins-semiBold;
+    color: $primary-color;
+}
 h5{}
 h6{}

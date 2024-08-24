@@ -1,18 +1,18 @@
 // Colors
-$primary-color: #fff;
+$primary-color: #333333;
 $secondary-color: #fcf8f3;
 $white: #fff;
 $black: #000;
 
 // Fonts
-$primary-font-size: 1rem;
-$secondary-font-size: 1rem;
-$font-size-1rem: 1rem;
-$font-size-2rem: 2rem;
-$font-size-3rem: 3rem;
-$font-size-4rem: 4rem;
-$font-size-5rem: 5rem;
-$font-size-6rem: 6rem;
+$primary-font-size: 2rem;
+$secondary-font-size: 2.5rem;
+$font-size-xs: 0.5rem;
+$font-size-s: 1rem;
+$font-size-m: 1.5rem;
+$font-size-l: 3rem;
+$font-size-xl: 3.5rem;
+$font-size-xxl: 4rem;
 
 // Font Weight
 $font-weight-500: 500;
@@ -22,3 +22,6 @@ $font-weight-900: 900;
 // Font Family
 $font-family-primary: "Poppins", "Source sarif pro", sans-serif;
 $font-family-secondary: "Source sarif pro", "Poppins", sans-serif;
+$font-family-poppins-bold: "Poppins-bold", "Source-sarif-pro-bold", sans-serif;
+$font-family-poppins-semiBold: "Poppins-semiBold", "Source-sarif-pro", sans-serif;
+$font-family-source-sarif-pro-bold: "Source-sarif-pro-bold", "Poppins-bold", sans-serif;

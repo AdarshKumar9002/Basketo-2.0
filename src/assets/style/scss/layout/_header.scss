@@ -4,7 +4,7 @@ header {
   top: 0;
   z-index: 999;
   width: 100%;
-  background: $primary-color;
+  background: $white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,7 +52,7 @@ header {
 
   // User Interactions
   .user-interactions {
-    background: $primary-color;
+    background: $white;
     justify-content: flex-end;
     gap: 1.5em;
     position: static;

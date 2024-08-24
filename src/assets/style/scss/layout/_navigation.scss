@@ -31,7 +31,7 @@ header {
       align-items: center;
       gap: 0.3em;
       color: $black;
-      font-size: $primary-font-size;
+      // font-size: $primary-font-size;
     }
     img {
       width: 3.75em;
@@ -49,6 +49,7 @@ header {
       width: auto;
       position: static;
       transform: translateX(0%);
+      background-color: $white;
 
       > button {
         display: none;
@@ -58,7 +59,7 @@ header {
         flex-direction: row;
       }
       li {
-        background: $primary-color;
+        background: $white;
       }
       img {
         width: 2em;
@@ -73,9 +74,6 @@ header {
 @media screen and (min-width: 1024px) {
     header {
       nav {
-        ul {
-            gap: 4em;
-          }
         img {
           width: 2.5em;
           height: 2.5em;
@@ -89,9 +87,6 @@ header {
 @media screen and (min-width: 1280px) {
     header {
       nav {
-        ul {
-            gap: 4.5em;
-          }
         img {
           width: 3em;
           height: 3em;
