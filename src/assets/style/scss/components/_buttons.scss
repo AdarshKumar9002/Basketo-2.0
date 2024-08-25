@@ -3,6 +3,7 @@ button {
     background: transparent;
 }
 .btn-primary {
+    width: 10em;
 background: red;
 font-size: 1px;
 font-weight: bold;
@@ -10,13 +11,29 @@ font-family: $font-family-primary;
 border-radius: 2px;
 text-align: center;
 padding: 0;
-};
+line-height: 1.5;
+
+}
+
 .btn-secondary {
-background: red;
-font-size: 1px;
-font-weight: bold;
+    width: 10em;
+border: 1px solid #B88E2F;
+color: #B88E2F;
+font-size: $font-size-s;
+font-weight: 600;
 font-family: $font-family-primary;
-border-radius: 2px;
 text-align: center;
 padding: 0;
+line-height: 1.5;
+}
+
+
+// Desktop 1024px
+@media screen and (min-width: 1024px) {
+    .btn-primary {
+        width: 10em;
+}
+    .btn-secondary {
+        width: 15.13em;
+}
 }

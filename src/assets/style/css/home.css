@@ -7,48 +7,55 @@
 
 @font-face {
   font-family: "Poppins";
-  src: local("Poppins"), url("../../../fonts/Poppins/Poppins-Regular.ttf") format("ttf");
+  src: local("Poppins"), url("../../../fonts/Poppins/Poppins-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "Poppins-bold";
-  src: local("Poppins"), url("../../../fonts/Poppins/Poppins-Bold.ttf") format("ttf");
+  font-family: "Poppins";
+  src: local("Poppins Bold"), url("../../../fonts/Poppins/Poppins-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
-  font-family: "Poppins-semiBold";
-  src: local("Poppins"), url("../../../fonts/Poppins/Poppins-SemiBold.ttf") format("ttf");
+  font-family: "Poppins";
+  src: local("Poppins SemiBold"), url("../../../fonts/Poppins/Poppins-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
-  font-family: "Source-Code-Pro";
-  src: local("Source Code Pro"), url("../../../fonts/Source_Code_Pro/static/SourceCodePro-Regular.ttf") format("ttf");
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro"), url("../../../fonts/Source_Code_Pro/static/SourceCodePro-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "Source-Code-Pro-bold";
-  src: local("Source Code Pro"), url("../../../fonts/Source_Code_Pro/static/SourceCodePro-Bold.ttf") format("ttf");
+  font-family: "Source Code Pro";
+  src: local("Source Code Pro Bold"), url("../../../fonts/Source_Code_Pro/static/SourceCodePro-Bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 h3 {
   font-size: 2rem;
-  font-family: "Poppins-bold", "Source-sarif-pro-bold", sans-serif;
+  font-family: "Poppins", "Source Code Pro", sans-serif;
   color: #333333;
+  font-weight: 700;
 }
 
 h4 {
   font-size: 1rem;
-  font-family: "Poppins-semiBold", "Source-sarif-pro", sans-serif;
+  font-family: "Poppins", "Source Code Pro", sans-serif;
   color: #333333;
+  font-weight: 600;
 }
 
+@media screen and (min-width: 768px) {
+  h4 {
+    font-size: 1.5rem;
+  }
+}
 body {
-  font-family: "Poppins", "Source sarif pro", sans-serif;
+  font-family: "Poppins", "Source Code Pro", sans-serif;
 }
 
 a {
@@ -59,31 +66,47 @@ a {
   display: none;
 }
 
+svg {
+  width: 25px;
+}
+
 button {
   border: none;
   background: transparent;
 }
 
 .btn-primary {
+  width: 10em;
   background: red;
   font-size: 1px;
   font-weight: bold;
-  font-family: "Poppins", "Source sarif pro", sans-serif;
+  font-family: "Poppins", "Source Code Pro", sans-serif;
   border-radius: 2px;
   text-align: center;
   padding: 0;
+  line-height: 1.5;
 }
 
 .btn-secondary {
-  background: red;
-  font-size: 1px;
-  font-weight: bold;
-  font-family: "Poppins", "Source sarif pro", sans-serif;
-  border-radius: 2px;
+  width: 10em;
+  border: 1px solid #B88E2F;
+  color: #B88E2F;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Poppins", "Source Code Pro", sans-serif;
   text-align: center;
   padding: 0;
+  line-height: 1.5;
 }
 
+@media screen and (min-width: 1024px) {
+  .btn-primary {
+    width: 10em;
+  }
+  .btn-secondary {
+    width: 15.13em;
+  }
+}
 header nav {
   height: 100dvh;
   background: #333333;
@@ -354,6 +377,13 @@ header svg {
   object-fit: cover;
 }
 
+.products-card__btnContainer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (min-width: 768px) {
   .categories-card__container {
     grid-template-columns: repeat(4, 1fr);
@@ -364,26 +394,139 @@ header svg {
 }
 @media screen and (min-width: 1024px) {
   .categories-card__container {
-    gap: 1.5em;
-    padding: 0 1.5em;
+    gap: 1.25em;
+    padding: 0 4.5em;
   }
 }
 @media screen and (min-width: 1280px) {
   .categories-card__container {
-    gap: 1.5em;
-    padding: 0 1.8em;
+    padding: 0 6.375em;
   }
   .categories-card__item img {
     height: 16em;
   }
 }
 @media screen and (min-width: 1440px) {
-  .categories-card__container {
-    gap: 2em;
-    padding: 0 2em;
-  }
   .categories-card__item img {
     height: 18em;
+  }
+}
+.products-card h3 {
+  text-align: center;
+  margin: 0.5em 0;
+}
+
+.products-card__container {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  padding: 0 1em;
+}
+
+.products-card__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 0;
+}
+
+.products-card__productImage {
+  position: relative;
+}
+.products-card__productImage img {
+  width: 100%;
+  object-fit: cover;
+}
+.products-card__productImage span {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  width: 35px;
+  height: 35px;
+  background: #e97171;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 2;
+}
+
+.products-card__onHoverElements {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  background: rgba(58, 58, 58, 0.72);
+}
+
+.products-card__onHoverButtons {
+  display: flex;
+  justify-content: space-evenly;
+}
+.products-card__onHoverButtons button {
+  color: #fff;
+}
+.products-card__onHoverButtons svg {
+  fill: #fff;
+  width: 12px;
+}
+
+.products-card__addToCart {
+  display: flex;
+  align-items: center;
+}
+.products-card__addToCart button {
+  width: 7.2em;
+  border: 1px solid #B88E2F;
+  background-color: #fff;
+  color: #B88E2F;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Poppins", "Source Code Pro", sans-serif;
+  text-align: center;
+  padding: 0;
+  line-height: 1.5;
+}
+
+.products-card__productDetails {
+  background-color: #f4f5f7;
+  text-align: left;
+}
+.products-card__productDetails h4 {
+  line-height: 1.2;
+}
+.products-card__productDetails p {
+  line-height: 1.5;
+}
+.products-card__productDetails span {
+  font-family: "Poppins", "Source Code Pro", sans-serif;
+  font-size: 1.25em;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.products-card__container > button {
+  grid-column: span 2;
+}
+
+@media screen and (min-width: 768px) {
+  .products-card__container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .products-card__container > button {
+    grid-column: span 4;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .products-card__container {
+    gap: 2em;
+    padding: 0 6.375em;
   }
 }
 
