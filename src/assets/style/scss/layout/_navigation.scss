@@ -1,7 +1,7 @@
 header {
   nav {
     height: 100dvh;
-    background: $primary-color;
+    background: $white;
     width: 50%;
     position: absolute;
     right: 0;
@@ -15,15 +15,17 @@ header {
       right: 1em;
     }
     ul {
-      margin-top: 1em;
+      margin-top: 6em;
       height: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       gap: 1em;
     }
     li {
-      background: $secondary-color;
+      &:hover, &:active, &:focus  {
+        background-color: $secondary-color;
+      }
+      
     }
     a {
       display: flex;
@@ -37,6 +39,9 @@ header {
       width: 3.75em;
       height: 3.75em;
     }
+  }
+  nav[data-menu="open"] {
+    transform: translateX(0%);
   }
 }
 
@@ -69,28 +74,26 @@ header {
   }
 }
 
-
 // Desktop 1024px
 @media screen and (min-width: 1024px) {
-    header {
-      nav {
-        img {
-          width: 2.5em;
-          height: 2.5em;
-        }
+  header {
+    nav {
+      img {
+        width: 2.5em;
+        height: 2.5em;
       }
     }
   }
-
+}
 
 // Desktop 1280px
 @media screen and (min-width: 1280px) {
-    header {
-      nav {
-        img {
-          width: 3em;
-          height: 3em;
-        }
+  header {
+    nav {
+      img {
+        width: 3em;
+        height: 3em;
       }
     }
   }
+}

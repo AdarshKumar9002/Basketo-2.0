@@ -19,16 +19,20 @@
     <header>
       <!-- == logo == -->
       <div class="logo">
-        <h1>
-          <a href="index.html">
-            <img src="./assets/img/logo.jpeg" alt="BuyNow Logo" height="60" />
-          </a>
-        </h1>
+        <a href="index.html">
+          <span><img src="./assets/img/shopping-bags.svg" alt="" /></span
+          >Basketo
+        </a>
       </div>
 
       <!-- == Navigation == -->
-      <nav>
-        <button aria-label="Click to Close Menu">
+      <nav id="headerNav" data-menu="close">
+        <button
+          class="headerMenuBtn"
+          aria-controls="headerNav"
+          aria-expanded="false"
+          aria-label="Click to Close Menu"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 384 512"
@@ -40,60 +44,21 @@
           </svg>
         </button>
         <ul>
+          <li><a href="./index.html">Home</a></li>
           <li>
-            <a href="#">
-              <img
-                src="./assets/img/clothing.jpg"
-                alt=""
-                width="60"
-                height="60"
-              />
-              Clothing
-            </a>
+            <a href="#"> Clothing </a>
           </li>
           <li>
-            <a href="#">
-              <img
-                src="./assets/img/accessories.jpg"
-                alt=""
-                width="60"
-                height="60"
-              />
-              Electronics
-            </a>
+            <a href="#"> Electronics </a>
           </li>
           <li>
-            <a href="#">
-              <img
-                src="./assets/img/footwear.jpeg"
-                alt=""
-                width="60"
-                height="60"
-              />
-              Footwear
-            </a>
+            <a href="#"> Footwear </a>
           </li>
           <li>
-            <a href="#">
-              <img
-                src="./assets/img/furniture.jpg"
-                alt=""
-                width="60"
-                height="60"
-              />
-              Furniture
-            </a>
+            <a href="#"> Furniture </a>
           </li>
           <li>
-            <a href="#">
-              <img
-                src="./assets/img/accessories.jpg"
-                alt=""
-                width="60"
-                height="60"
-              />
-              Accessories
-            </a>
+            <a href="#"> Accessories </a>
           </li>
         </ul>
       </nav>
@@ -155,7 +120,12 @@
       </div>
 
       <!-- == Menu Button Mobile == -->
-      <button aria-label="Click to open Menu">
+      <button
+        class="headerMenuBtn"
+        aria-controls="headerNav"
+        aria-expanded="false"
+        aria-label="Click to open Menu"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"
@@ -480,7 +450,7 @@
     <!-- ========== Footer ========== -->
     <footer>
       <a class="footerLogo" href="index.html">
-        <img src="./assets/img/logo.jpeg" alt="BuyNow Logo" height="60" />
+        <img src="./assets/img/Basketo-log.svg" alt="Basketo Logo" />
       </a>
       <nav>
         <ul>
@@ -493,15 +463,14 @@
         <h3>Newsletter</h3>
         <div>
           <input
-          type="email"
-          name="subscribe"
-          id="subscribe"
-          placeholder="Enter your E-mail Address"
-          required
-        />
-        <button type="submit" id="subscribe-btn">Subscribe</button>
+            type="email"
+            name="subscribe"
+            id="subscribe"
+            placeholder="Enter your E-mail Address"
+            required
+          />
+          <button type="submit" id="subscribe-btn">Subscribe</button>
         </div>
-        
       </div>
       <div class="followUs">
         <h3>Follow Us</h3>
@@ -560,5 +529,6 @@
     </footer>
 
     <!-- ========== Script ========== -->
+     <script type="module" src="./assets/scripts/home.js"></script>
   </body>
 </html>
