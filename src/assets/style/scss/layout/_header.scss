@@ -7,11 +7,14 @@ header {
   background: $white;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0.5em 1em;
 }
+
 .logo {
   overflow: hidden;
   padding: 0 0.3em;
+
   a {
     color: $black;
     object-fit: contain;
@@ -34,20 +37,21 @@ header {
   width: 100%;
   background: $secondary-color;
   padding: 0.5em 1em;
+  .user-interactions__userAuth {
+    display: none;
+  }
 }
 
 // Tablet Style
-
 @media screen and (min-width: 768px) {
   header {
     justify-content: space-between;
     padding: 0.5em 1em;
-    svg {
-      width: 25px;
+    nav + button {
+      display: none;
     }
   }
 
-  // User Interactions
   .user-interactions {
     background: $white;
     justify-content: flex-end;
@@ -55,56 +59,58 @@ header {
     position: static;
     width: auto;
     padding: 0;
+  }
 
-    + button {
-      display: none;
-    }
+  #home-btn {
+    display: none;
   }
 }
 
 // Desktop 1024px
-
 @media screen and (min-width: 1024px) {
   header {
     justify-content: space-around;
+    padding: 1em;
+
+    .headerMenuBtn {
+      display: none;
+    }
+
     svg {
       width: 30px;
     }
   }
 
-  // User Interactions
   .user-interactions {
     gap: 2.4em;
   }
 }
 
-
 // Desktop 1280px
 @media screen and (min-width: 1280px) {
   header {
     justify-content: space-around;
+
     svg {
       width: 30px;
     }
   }
 
-  // User Interactions
   .user-interactions {
     gap: 2.8em;
   }
 }
 
-
 // Desktop 1400px
 @media screen and (min-width: 1400px) {
   header {
     justify-content: space-around;
+
     svg {
       width: 30px;
     }
   }
 
-  // User Interactions
   .user-interactions {
     gap: 3em;
   }

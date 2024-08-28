@@ -2,17 +2,17 @@ header {
   nav {
     height: 100dvh;
     background: $white;
-    width: 50%;
+    width: 40%;
     position: absolute;
-    right: 0;
+    left: 0;
     top: 0;
-    transform: translateX(100%);
-    transition: 2ms ease-in-out;
+    transform: translateX(-100%);
+    transition: 220ms ease-in;
 
     > button {
       position: absolute;
       top: 1em;
-      right: 1em;
+      left: 1em;
     }
     ul {
       margin-top: 6em;
@@ -49,6 +49,15 @@ header {
 
 @media screen and (min-width: 768px) {
   header {
+   nav{
+    width: 20%;
+   }
+  }
+}
+
+// Desktop 1024px
+@media screen and (min-width: 1024px) {
+  header {
     nav {
       height: auto;
       width: auto;
@@ -65,22 +74,6 @@ header {
       }
       li {
         background: $white;
-      }
-      img {
-        width: 2em;
-        height: 2em;
-      }
-    }
-  }
-}
-
-// Desktop 1024px
-@media screen and (min-width: 1024px) {
-  header {
-    nav {
-      img {
-        width: 2.5em;
-        height: 2.5em;
       }
     }
   }

@@ -104,17 +104,17 @@ button {
 header nav {
   height: 100dvh;
   background: #fff;
-  width: 50%;
+  width: 40%;
   position: absolute;
-  right: 0;
+  left: 0;
   top: 0;
-  transform: translateX(100%);
-  transition: 2ms ease-in-out;
+  transform: translateX(-100%);
+  transition: 220ms ease-in;
 }
 header nav > button {
   position: absolute;
   top: 1em;
-  right: 1em;
+  left: 1em;
 }
 header nav ul {
   margin-top: 6em;
@@ -143,6 +143,11 @@ header nav[data-menu=open] {
 
 @media screen and (min-width: 768px) {
   header nav {
+    width: 20%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  header nav {
     height: auto;
     width: auto;
     position: static;
@@ -158,16 +163,6 @@ header nav[data-menu=open] {
   }
   header nav li {
     background: #fff;
-  }
-  header nav img {
-    width: 2em;
-    height: 2em;
-  }
-}
-@media screen and (min-width: 1024px) {
-  header nav img {
-    width: 2.5em;
-    height: 2.5em;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -185,6 +180,7 @@ header {
   background: #fff;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0.5em 1em;
 }
 
@@ -213,14 +209,17 @@ header {
   background: #fcf8f3;
   padding: 0.5em 1em;
 }
+.user-interactions .user-interactions__userAuth {
+  display: none;
+}
 
 @media screen and (min-width: 768px) {
   header {
     justify-content: space-between;
     padding: 0.5em 1em;
   }
-  header svg {
-    width: 25px;
+  header nav + button {
+    display: none;
   }
   .user-interactions {
     background: #fff;
@@ -230,13 +229,17 @@ header {
     width: auto;
     padding: 0;
   }
-  .user-interactions + button {
+  #home-btn {
     display: none;
   }
 }
 @media screen and (min-width: 1024px) {
   header {
     justify-content: space-around;
+    padding: 1em;
+  }
+  header .headerMenuBtn {
+    display: none;
   }
   header svg {
     width: 30px;
