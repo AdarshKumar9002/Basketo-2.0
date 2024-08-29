@@ -172,7 +172,7 @@ header nav[data-menu=open] {
   }
 }
 header {
-  position: fixed;
+  position: sticky;
   left: 0;
   top: 0;
   z-index: 999;
@@ -272,7 +272,6 @@ header {
 }
 .carousel {
   position: relative;
-  margin-top: 3.46em;
   overflow: hidden;
   height: 15.6255em;
 }
@@ -302,6 +301,9 @@ header {
   display: none;
   justify-content: space-between;
 }
+.carousel__controls button.hidden {
+  display: none;
+}
 .carousel__controls button svg {
   fill: #000;
   width: 20px;
@@ -323,14 +325,12 @@ header {
   height: 0.8em;
   cursor: pointer;
 }
-.carousel__dotControls button.carousel__currentImage {
+
+.carousel__currentImage button {
   background-color: rgba(9, 7, 7, 0.7019607843);
 }
 
 @media screen and (min-width: 768px) {
-  .carousel {
-    margin-top: 4.46em;
-  }
   .carousel__controls {
     display: flex;
   }
@@ -338,16 +338,6 @@ header {
 @media screen and (min-width: 1024px) {
   .carousel {
     margin-top: 5em;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .carousel {
-    margin-top: 5.2em;
-  }
-}
-@media screen and (min-width: 1440px) {
-  .carousel {
-    margin-top: 5.2em;
   }
 }
 .categories-card {

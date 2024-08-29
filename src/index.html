@@ -14,10 +14,9 @@
     <!-- ========== CSS ========== -->
     <link rel="stylesheet" href="./assets/style/css/home.css" />
   </head>
-  <body>
+  <body id="top">
     <!-- ========== Header ========== -->
     <header>
-
       <!-- == Menu Button Mobile == -->
       <button
         class="headerMenuBtn"
@@ -39,11 +38,11 @@
       <!-- == logo == -->
       <div class="logo">
         <h1>
-        <a href="index.html">
-          <span><img src="./assets/img/shopping-bags.svg" alt="" /></span
-          >Basketo
-        </a>
-      </h1>
+          <a href="index.html">
+            <span><img src="./assets/img/shopping-bags.svg" alt="" /></span
+            >Basketo
+          </a>
+        </h1>
       </div>
 
       <!-- == Navigation == -->
@@ -84,9 +83,30 @@
         </ul>
       </nav>
 
-      
-        <!-- User Authentication Button Mobile -->
-        <button aria-label="Click to login or signup">
+      <!-- User Authentication Button Mobile -->
+      <button aria-label="Click to login or signup">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          class="icon-user"
+        >
+          <path
+            d="M399 384.2C376.9 345.8 335.4 320 288 320l-64 0c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"
+          />
+        </svg>
+      </button>
+
+      <!-- <div aria-haspopup="dialog" class="visibility-hidden">
+
+        </div> -->
+
+      <!-- == Button and link Container == -->
+      <div class="user-interactions">
+        <!-- User Authentication Button -->
+        <button
+          class="user-interactions__userAuth"
+          aria-label="Click to login or signup"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
@@ -98,35 +118,18 @@
           </svg>
         </button>
 
-      <!-- == Button and link Container == -->
-      <div class="user-interactions">
-
-            <!-- User Authentication Button -->
-            <button class="user-interactions__userAuth" aria-label="Click to login or signup">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
-                class="icon-user"
-              >
-                <path
-                  d="M399 384.2C376.9 345.8 335.4 320 288 320l-64 0c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"
-                />
-              </svg>
-            </button>
-
         <!-- Home Button -->
-        <button id="home-btn" aria-label="Click to go to Home Page">
+        <a href="#top" id="home-btn" aria-label="Click to go to Home Page">
           <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          class="icon-home"
-        >
-          <path
-            d="M12 2.0996094 L1 12 L4 12 L4 21 L11 21 L11 15 L13 15 L13 21 L20 21 L20 12 L23 12 L12 2.0996094 z M12 4.7910156 L18 10.191406 L18 11 L18 19 L15 19 L15 13 L9 13 L9 19 L6 19 L6 10.191406 L12 4.7910156 z"
-          />
-        </svg>
-        
-        </button>
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            class="icon-home"
+          >
+            <path
+              d="M12 2.0996094 L1 12 L4 12 L4 21 L11 21 L11 15 L13 15 L13 21 L20 21 L20 12 L23 12 L12 2.0996094 z M12 4.7910156 L18 10.191406 L18 11 L18 19 L15 19 L15 13 L9 13 L9 19 L6 19 L6 10.191406 L12 4.7910156 z"
+            />
+          </svg>
+        </a>
         <!-- Search Button -->
         <button aria-label="Click to open search box">
           <svg
@@ -167,15 +170,13 @@
           </svg>
         </a>
       </div>
-
-      
     </header>
 
     <!-- ========== Carousel ========== -->
     <section class="carousel" aria-label="Carousel">
       <!-- == Carousel Slides == -->
       <ul class="carousel__track">
-        <li class="carousel__slides" aria-hidden="false">
+        <li class="carousel__slides carousel__slide--current" aria-hidden="false">
           <picture>
             <source
               srcset="./assets/img/Women's-collection-banner.avif"
@@ -288,7 +289,7 @@
       <!-- == Carousel Preview and Next button == -->
       <ul class="carousel__controls">
         <li>
-          <button aria-label="Preview Button">
+          <button id="carousel__prevBtn" aria-label="Preview Button">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 384 512"
@@ -301,7 +302,7 @@
           </button>
         </li>
         <li>
-          <button aria-label="Next Button">
+          <button id="carousel__nextBtn"  aria-label="Next Button">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 384 512"
@@ -317,9 +318,8 @@
 
       <!-- == Carousel Indictor/Dot Controls == -->
       <ul class="carousel__dotControls">
-        <li>
+        <li class="carousel__currentImage">
           <button
-            class="carousel__currentImage"
             aria-labelledby="currentSlideInfo"
           ></button>
         </li>

@@ -1,9 +1,11 @@
-import MenuToggler from './modules/menu-toggler.js';
+import MenuToggler from './modules/global/menu-toggler.js';
+import  Carousel  from './modules/home/carousel.js';
 
 class HomePage {
   constructor(MenuTogglerClass) {
     this.MenuTogglerClass = MenuTogglerClass;
     this.toggleHeaderMenu();
+    this.carouselHandler();
   }
 
   toggleHeaderMenu() {
@@ -21,6 +23,11 @@ class HomePage {
         menuToggleHandler.toggle();
       });
     });
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  carouselHandler() {
+    const carousel = new Carousel();
   }
 }
 document.addEventListener('DOMContentLoaded', () => {

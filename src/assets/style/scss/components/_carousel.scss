@@ -1,6 +1,6 @@
 .carousel {
   position: relative;
-  margin-top: 3.46em;
+  // margin-top: 3.46em;
   overflow: hidden;
   height: 15.6255em;
 }
@@ -33,6 +33,9 @@
   display: none;
   justify-content: space-between;
   button {
+    &.hidden{
+      display: none;
+    }
     svg {
       fill: $black;
       width: 20px;
@@ -55,18 +58,21 @@
     width: 0.8em;
     height: 0.8em;
     cursor: pointer;
-    &.carousel__currentImage {
+  }
+  }
+  .carousel__currentImage {
+    button {
       background-color: #090707b3;
     }
   }
-}
+
 
 // Tablet 768px
 
 @media screen and (min-width: 768px) {
   .carousel {
     // height: 18.75em;
-    margin-top: 4.46em;
+    // margin-top: 4.46em;
   }
   .carousel__controls {
     display: flex;
@@ -78,7 +84,6 @@
 @media screen and (min-width: 1024px) {
   .carousel {
     margin-top: 5em;
-
   }
 }
 
@@ -87,7 +92,7 @@
 @media screen and (min-width: 1280px) {
   .carousel {
     // height: 21.875em;
-    margin-top: 5.2em;
+    // margin-top: 5.2em;
   }
 }
 
@@ -96,6 +101,6 @@
 @media screen and (min-width: 1440px) {
   .carousel {
     // height: 25em;
-    margin-top: 5.2em;
+    // margin-top: 5.2em;
   }
 }
