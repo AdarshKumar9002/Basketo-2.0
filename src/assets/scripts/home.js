@@ -1,12 +1,15 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable class-methods-use-this */
 import MenuToggler from './modules/global/menu-toggler.js';
-import  Carousel  from './modules/home/carousel.js';
+// import ScrollEffect from './modules/home/header-scroll-effect.js';
 
 class HomePage {
   constructor(MenuTogglerClass) {
     this.MenuTogglerClass = MenuTogglerClass;
     this.toggleHeaderMenu();
-    this.carouselHandler();
+    // this.headerScrollEffect();
   }
+
 
   toggleHeaderMenu() {
     const HEADER_MENU_BUTTON_ELEMENTS =
@@ -25,12 +28,12 @@ class HomePage {
     });
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  carouselHandler() {
-    const carousel = new Carousel();
-  }
+  // headerScrollEffect() {
+  //   const scrollEffect =  new ScrollEffect();
+  // }
 }
 document.addEventListener('DOMContentLoaded', () => {
-  // eslint-disable-next-line no-unused-vars
   const homePage = new HomePage(MenuToggler);
 });
+
+

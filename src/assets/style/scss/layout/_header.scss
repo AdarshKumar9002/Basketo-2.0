@@ -1,10 +1,11 @@
 header {
-  position: sticky;
+  position: fixed;
   left: 0;
   top: 0;
   z-index: 999;
   width: 100%;
   background: $white;
+  opacity: 0.9;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -51,9 +52,12 @@ header {
       display: none;
     }
   }
+  // .scrolled{
+  //   background: #ffffff60;
+  // }
 
   .user-interactions {
-    background: $white;
+    background: none;
     justify-content: flex-end;
     gap: 1.5em;
     position: static;

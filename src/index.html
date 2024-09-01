@@ -16,7 +16,7 @@
   </head>
   <body id="top">
     <!-- ========== Header ========== -->
-    <header>
+    <header data-scroll-position="zero">
       <!-- == Menu Button Mobile == -->
       <button
         class="headerMenuBtn"
@@ -37,12 +37,10 @@
 
       <!-- == logo == -->
       <div class="logo">
-        <h1>
-          <a href="index.html">
-            <span><img src="./assets/img/shopping-bags.svg" alt="" /></span
-            >Basketo
-          </a>
-        </h1>
+        <a href="index.html">
+          <span><img src="./assets/img/shopping-bags.svg" alt="" /></span
+          >Basketo
+        </a>
       </div>
 
       <!-- == Navigation == -->
@@ -165,173 +163,26 @@
           >
             <path
               d="M8.5,19A1.5,1.5,0,1,0,10,20.5,1.5,1.5,0,0,0,8.5,19ZM19,16H7a1,1,0,0,1,0-2h8.49121A3.0132,3.0132,0,0,0,18.376,11.82422L19.96143,6.2749A1.00009,1.00009,0,0,0,19,5H6.73907A3.00666,3.00666,0,0,0,3.92139,3H3A1,1,0,0,0,3,5h.92139a1.00459,1.00459,0,0,1,.96142.7251l.15552.54474.00024.00506L6.6792,12.01709A3.00006,3.00006,0,0,0,7,18H19a1,1,0,0,0,0-2ZM17.67432,7l-1.2212,4.27441A1.00458,1.00458,0,0,1,15.49121,12H8.75439l-.25494-.89221L7.32642,7ZM16.5,19A1.5,1.5,0,1,0,18,20.5,1.5,1.5,0,0,0,16.5,19Z"
-              fill="#000"
             />
           </svg>
         </a>
       </div>
     </header>
 
-    <!-- ========== Carousel ========== -->
-    <section class="carousel" aria-label="Carousel">
-      <!-- == Carousel Slides == -->
-      <ul class="carousel__track">
-        <li class="carousel__slides carousel__slide--current" aria-hidden="false">
-          <picture>
-            <source
-              srcset="./assets/img/Women's-collection-banner.avif"
-              height="400"
-              type="image/avif"
-            />
-            <source
-              srcset="./assets/img/Women's-collection-banner.webp"
-              height="400"
-              type="image/webp"
-            />
-            <img
-              src="./assets/img/Women's-collection-banner.jpg"
-              height="400"
-              alt="A woredrobe full of women's clothes"
-            />
-          </picture>
-          <div class="carousel__slidesInfo">
-            <h3>Women</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
-              cum!
-            </p>
-            <button>See More</button>
-          </div>
-        </li>
-        <li class="carousel__slides" aria-hidden="true">
-          <picture>
-            <source
-              srcset="./assets/img/men's-collection-banner.avif"
-              height="400"
-              type="image/avif"
-            />
-            <source
-              srcset="./assets/img/men's-collection-banner.webp"
-              height="400"
-              type="image/webp"
-            />
-            <img
-              src="./assets/img/men's-collection-banner.jpg"
-              height="400"
-              alt="A woredrobe full of men's clothes"
-            />
-          </picture>
-          <div class="carousel__slidesInfo">
-            <h3>Men</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
-              cum!
-            </p>
-            <button>See More</button>
-          </div>
-        </li>
-        <li class="carousel__slides" aria-hidden="true">
-          <picture>
-            <source
-              srcset="./assets/img/jewelry-banner.avif"
-              height="400"
-              type="image/avif"
-            />
-            <source
-              srcset="./assets/img/jewelry-banner.webp"
-              height="400"
-              type="image/webp"
-            />
-            <img
-              src="./assets/img/jewelry-banner.jpeg"
-              height="400"
-              alt="Jewelery are put on the beach"
-            />
-          </picture>
-          <div class="carousel__slidesInfo">
-            <h3>Jewelry</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
-              cum!
-            </p>
-            <button>See More</button>
-          </div>
-        </li>
-        <li class="carousel__slides" aria-hidden="true">
-          <picture>
-            <source
-              srcset="./assets/img/furniture-carousel-banner.avif"
-              height="400"
-              type="image/avif"
-            />
-            <source
-              srcset="./assets/img/furniture-carousel-banner.webp"
-              height="400"
-              type="image/webp"
-            />
-            <img
-              src="./assets/img/furniture-carousel-banner.jpg"
-              height="400"
-              alt="A room with furnitures"
-            />
-          </picture>
-          <div class="carousel__slidesInfo">
-            <h3>Furniture</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
-              cum!
-            </p>
-            <button>See More</button>
-          </div>
-        </li>
-      </ul>
-
-      <!-- == Carousel Preview and Next button == -->
-      <ul class="carousel__controls">
-        <li>
-          <button id="carousel__prevBtn" aria-label="Preview Button">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 384 512"
-              class="icon-prev"
-            >
-              <path
-                d="M380.6 81.7c7.9 15.8 1.5 35-14.3 42.9L103.6 256 366.3 387.4c15.8 7.9 22.2 27.1 14.3 42.9s-27.1 22.2-42.9 14.3l-320-160C6.8 279.2 0 268.1 0 256s6.8-23.2 17.7-28.6l320-160c15.8-7.9 35-1.5 42.9 14.3z"
-              />
-            </svg>
-          </button>
-        </li>
-        <li>
-          <button id="carousel__nextBtn"  aria-label="Next Button">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 384 512"
-              class="icon-next"
-            >
-              <path
-                d="M3.4 81.7c-7.9 15.8-1.5 35 14.3 42.9L280.5 256 17.7 387.4C1.9 395.3-4.5 414.5 3.4 430.3s27.1 22.2 42.9 14.3l320-160c10.8-5.4 17.7-16.5 17.7-28.6s-6.8-23.2-17.7-28.6l-320-160c-15.8-7.9-35-1.5-42.9 14.3z"
-              />
-            </svg>
-          </button>
-        </li>
-      </ul>
-
-      <!-- == Carousel Indictor/Dot Controls == -->
-      <ul class="carousel__dotControls">
-        <li class="carousel__currentImage">
-          <button
-            aria-labelledby="currentSlideInfo"
-          ></button>
-        </li>
-        <li><button aria-labelledby="currentSlideInfo"></button></li>
-        <li><button aria-labelledby="currentSlideInfo"></button></li>
-        <li><button aria-labelledby="currentSlideInfo"></button></li>
-        <li>
-          <span id="currentSlideInfo" class="visibility-hidden"
-            >You are on <span>1</span>Slide</span
-          >
-        </li>
-      </ul>
+    <!-- ========== Hero Image ========== -->
+    <section class="hero" aria-label="banner">
+      <div class="hero__image">
+        <picture>
+          <img
+            src="./assets/img/hero-image3.jpg"
+            alt="img"
+          />
+        </picture>
+      </div>
+      <div class="hero__content">
+        <h1>Discover Our Latest <br> Fashion Collection</h1>
+        <button>Shop now</button>
+      </div>
     </section>
 
     <!-- ========== Main ========== -->
@@ -483,7 +334,7 @@
     <!-- ========== Footer ========== -->
     <footer>
       <a class="footerLogo" href="index.html">
-        <img src="./assets/img/Basketo-log.svg" alt="Basketo Logo" />
+        <!-- <img src="./assets/img/Basketo-log.svg" alt="Basketo Logo" /> -->
       </a>
       <nav>
         <ul>

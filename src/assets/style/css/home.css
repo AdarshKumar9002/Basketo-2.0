@@ -29,6 +29,14 @@
   font-weight: bold;
   font-style: normal;
 }
+h1 {
+  font-size: 1.5rem;
+  font-family: "Poppins", "Source Code Pro", sans-serif;
+  color: #fff;
+  font-weight: 900;
+  line-height: 1.5;
+}
+
 h3 {
   font-size: 2rem;
   font-family: "Poppins", "Source Code Pro", sans-serif;
@@ -46,6 +54,11 @@ h4 {
 @media screen and (min-width: 768px) {
   h4 {
     font-size: 1.5rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  h1 {
+    font-size: 3rem;
   }
 }
 body {
@@ -104,7 +117,7 @@ button {
 header nav {
   height: 100dvh;
   background: #fff;
-  width: 40%;
+  width: 100%;
   position: absolute;
   left: 0;
   top: 0;
@@ -132,6 +145,7 @@ header nav a {
   align-items: center;
   gap: 0.3em;
   color: #000;
+  font-size: 1.5rem;
 }
 header nav img {
   width: 3.75em;
@@ -141,18 +155,13 @@ header nav[data-menu=open] {
   transform: translateX(0%);
 }
 
-@media screen and (min-width: 768px) {
-  header nav {
-    width: 20%;
-  }
-}
 @media screen and (min-width: 1024px) {
   header nav {
     height: auto;
     width: auto;
     position: static;
     transform: translateX(0%);
-    background-color: #fff;
+    background: none;
   }
   header nav > button {
     display: none;
@@ -162,22 +171,25 @@ header nav[data-menu=open] {
     flex-direction: row;
   }
   header nav li {
-    background: #fff;
+    background: none;
+  }
+  header nav a {
+    font-size: 1rem;
   }
 }
 @media screen and (min-width: 1280px) {
-  header nav img {
-    width: 3em;
-    height: 3em;
+  header nav a {
+    font-size: 1.5rem;
   }
 }
 header {
-  position: sticky;
+  position: fixed;
   left: 0;
   top: 0;
   z-index: 999;
   width: 100%;
   background: #fff;
+  opacity: 0.9;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -222,7 +234,7 @@ header {
     display: none;
   }
   .user-interactions {
-    background: #fff;
+    background: none;
     justify-content: flex-end;
     gap: 1.5em;
     position: static;
@@ -270,74 +282,50 @@ header {
     gap: 3em;
   }
 }
-.carousel {
+.hero {
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
   position: relative;
-  overflow: hidden;
-  height: 15.6255em;
 }
 
-.carousel__track {
-  position: relative;
-  height: 100%;
-}
-
-.carousel__slides {
+.hero__image {
   position: absolute;
   top: 0;
-  width: 100%;
+  z-index: -1;
   height: 100%;
+  width: 100%;
 }
-.carousel__slides img {
+.hero__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.carousel__controls {
+.hero__content {
   position: absolute;
-  top: 50%;
+  bottom: 4em;
+  text-align: center;
   width: 100%;
-  z-index: 99;
-  display: none;
-  justify-content: space-between;
 }
-.carousel__controls button.hidden {
-  display: none;
-}
-.carousel__controls button svg {
-  fill: #000;
-  width: 20px;
-}
-
-.carousel__dotControls {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  z-index: 99;
-  display: flex;
-  justify-content: center;
-  gap: 1em;
-}
-.carousel__dotControls button {
-  background-color: #eee;
-  border-radius: 50%;
-  width: 0.8em;
-  height: 0.8em;
-  cursor: pointer;
-}
-
-.carousel__currentImage button {
-  background-color: rgba(9, 7, 7, 0.7019607843);
+.hero__content button {
+  color: #fff;
+  border: 1px solid #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 2;
+  width: 6.5em;
+  text-align: center;
+  margin-top: 1em;
 }
 
 @media screen and (min-width: 768px) {
-  .carousel__controls {
-    display: flex;
+  .hero h1 {
+    font-size: 3rem;
   }
-}
-@media screen and (min-width: 1024px) {
-  .carousel {
-    margin-top: 5em;
+  .hero__content button {
+    width: 7em;
+    font-size: 1.5rem;
   }
 }
 .categories-card {
