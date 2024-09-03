@@ -2,12 +2,16 @@
 /* eslint-disable class-methods-use-this */
 import MenuToggler from './modules/global/menu-toggler.js';
 // import ScrollEffect from './modules/home/header-scroll-effect.js';
+import GetCategories from './modules/global/categories.js';
+import API_LINKS from './modules/global/vendor.js';
+
 
 class HomePage {
   constructor(MenuTogglerClass) {
     this.MenuTogglerClass = MenuTogglerClass;
     this.toggleHeaderMenu();
     // this.headerScrollEffect();
+    this.categories();
   }
 
 
@@ -31,9 +35,13 @@ class HomePage {
   // headerScrollEffect() {
   //   const scrollEffect =  new ScrollEffect();
   // }
+
+  categories() {
+    const productCategories = new GetCategories(API_LINKS.categories);
+  }
 }
 document.addEventListener('DOMContentLoaded', () => {
-  const homePage = new HomePage(MenuToggler);
+  const homePage = new HomePage(MenuToggler,);
 });
 
 
