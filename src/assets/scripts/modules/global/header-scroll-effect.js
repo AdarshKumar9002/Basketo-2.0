@@ -16,13 +16,13 @@ class ScrollEffect {
   applyStyles() {
     const scrollYposition = window.scrollY;
 
-    if (scrollYposition < this.heroContainerBottom * 0.2) {
+    if (scrollYposition > this.heroContainerBottom * 0.2) {
         this.HEADER_ELEMENT.classList.add('scrolled');
-      this.HEADER_ELEMENT.setAttribute('data-scroll-position', "zero");
+      this.HEADER_ELEMENT.setAttribute('data-scroll-position', "non-zero");
       return;
     }
     this.HEADER_ELEMENT.classList.remove('scrolled');
-    this.HEADER_ELEMENT.setAttribute('data-scroll-position', "non-zero");
+    this.HEADER_ELEMENT.setAttribute('data-scroll-position', "zero");
   }
 
   addScrollListener() {
