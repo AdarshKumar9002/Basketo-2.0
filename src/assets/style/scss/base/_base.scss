@@ -10,3 +10,21 @@ a {
 svg {
   width: 25px;
 }
+.separator {
+  width: 100%;
+  height: 8px;
+  background: #1363df 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+.separator2 {
+  width: 100%;
+  height: 4px;
+  background-color: #f4f5f5;
+}
+
+.flex{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

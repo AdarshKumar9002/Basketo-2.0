@@ -173,14 +173,14 @@
     <section class="hero">
       <div class="hero__image">
         <picture>
-          <img
-            src="./assets/img/hero-image3.jpg"
-            alt="img"
-          />
+          <img src="./assets/img/hero-image3.jpg" alt="img" />
         </picture>
       </div>
       <div class="hero__content">
-        <h1>Discover Our Latest <br> Fashion Collection</h1>
+        <h1>
+          Discover Our Latest <br />
+          Fashion Collection
+        </h1>
         <button>Shop now</button>
       </div>
     </section>
@@ -189,47 +189,79 @@
     <main>
       <!-- == Top Categories == -->
       <section class="categories-card" aria-label="Categories Cards">
-        <h3>Top Categories</h3>
-        <div class="categories-card__container" role="">
+        <h2>Top Categories</h2>
+        <div class="categories-card__container flex" role="">
+          <!-- Women's clothing -->
           <div
-            class="categories-card__item"
+            class="categories-card__item flex"
             role="group"
             aria-label="Women's Clothing Category Card"
           >
-            <a href="#"
-              ><img
-                src="./assets/img/women's-clothing.jpg"
-                alt="A woman wearing brown jacket and brown jeans"
-            /></a>
-            <a href="#"><h4>Women's Clothing</h4></a>
+            <div class="categories-card__image">
+              <a href="#">
+                <img src="./assets/img/women's-clothing.jpg" alt="A women wearing brown leather jacket" />
+              </a>
+            </div>
+            <div class="categories-card__details">
+              <a href="#">
+                <h3>Women's Clothing</h3>
+              </a>
+            </div>
+            <div class="separator"></div>
           </div>
+          <!-- Men's clothing -->
           <div
-            class="categories-card__item"
+            class="categories-card__item flex"
             role="group"
-            aria-label="Men's Clothing Category Card"
+            aria-label="men's Clothing Category Card"
           >
-            <a href="#"
-              ><img
-                src="./assets/img/men's-clothing.jpg"
-                alt="A man wearing jacket and blue jeans"
-            /></a>
-            <a href="#"><h4>Men's Clothing</h4></a>
+            <div class="categories-card__image">
+              <a href="#">
+                <img src="./assets/img/men's-clothing.jpg" alt=" A man wearing black jacket" />
+              </a>
+            </div>
+            <div class="categories-card__details">
+              <a href="#">
+                <h3>Men's Clothing</h3>
+              </a>
+            </div>
+            <div class="separator"></div>
           </div>
+          <!-- Jewelery -->
           <div
-            class="categories-card__item"
+            class="categories-card__item flex"
             role="group"
-            aria-label="Kid's Clothing Category Card"
+            aria-label="Jewelery Category Card"
           >
-            <a href="#"><img src="./assets/img/kids-clothing.jpg" alt="" /></a>
-            <a href="#"><h4>Kid's Clothing</h4></a>
+            <div class="categories-card__image">
+              <a href="#">
+                <img src="./assets/img/kids-clothing.jpg" alt="A diamond ring" />
+              </a>
+            </div>
+            <div class="categories-card__details">
+              <a href="#">
+                <h3>Jewelery</h3>
+              </a>
+            </div>
+            <div class="separator"></div>
           </div>
+          <!-- Smartphones -->
           <div
-            class="categories-card__item"
+            class="categories-card__item flex"
             role="group"
-            aria-label="Mobiles Category Card"
+            aria-label="Smartphones Category Card"
           >
-            <a href="#"><img src="./assets/img/smartphones.jpg" alt="" /></a>
-            <a href="#"><h4>Mobiles</h4></a>
+            <div class="categories-card__image">
+              <a href="#">
+                <img src="./assets/img/smartphones.jpg" alt="Smartphones" />
+              </a>
+            </div>
+            <div class="categories-card__details">
+              <a href="#">
+                <h3>Smartphones</h3>
+              </a>
+            </div>
+            <div class="separator"></div>
           </div>
         </div>
       </section>

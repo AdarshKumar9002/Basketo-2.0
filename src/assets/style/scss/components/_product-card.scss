@@ -101,6 +101,12 @@
     grid-column: span 2;
   }
 }
+.products-card__btnContainer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
 // Tablet 768px
 @media screen and (min-width: 768px) {
   .products-card__container {

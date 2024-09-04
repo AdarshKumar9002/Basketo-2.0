@@ -6,9 +6,13 @@ h1 {
   line-height: 1.5;
 }
 h2 {
+  font-size: $primary-font-size;
+  font-family: $font-family-primary;
+  color: $primary-color;
+  font-weight: 700;
 }
 h3 {
-  font-size: $primary-font-size;
+  font-size: $font-size-m;
   font-family: $font-family-primary;
   color: $primary-color;
   font-weight: 700;
