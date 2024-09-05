@@ -454,14 +454,14 @@ header {
   line-height: 0;
 }
 
-.products-card__productImage {
+.products-card__product-image {
   position: relative;
 }
-.products-card__productImage img {
+.products-card__product-image img {
   width: 100%;
   object-fit: cover;
 }
-.products-card__productImage span {
+.products-card__product-image span {
   position: absolute;
   top: 0.5em;
   right: 0.5em;
@@ -473,7 +473,7 @@ header {
   line-height: 2;
 }
 
-.products-card__onHoverElements {
+.products-card__on-hover-elements {
   position: absolute;
   top: 0;
   width: 100%;
@@ -486,14 +486,14 @@ header {
   background: rgba(58, 58, 58, 0.72);
 }
 
-.products-card__onHoverButtons {
+.products-card__on-hover-buttons {
   display: flex;
   justify-content: space-evenly;
 }
-.products-card__onHoverButtons button {
+.products-card__on-hover-buttons button {
   color: #fff;
 }
-.products-card__onHoverButtons svg {
+.products-card__on-hover-buttons svg {
   fill: #fff;
   width: 12px;
 }
@@ -504,9 +504,9 @@ header {
 }
 .products-card__addToCart button {
   width: 7.2em;
-  border: 1px solid #B88E2F;
+  border: 1px solid #b88e2f;
   background-color: #fff;
-  color: #B88E2F;
+  color: #b88e2f;
   font-size: 1rem;
   font-weight: 600;
   font-family: "Poppins", "Source Code Pro", sans-serif;
@@ -532,15 +532,9 @@ header {
   font-weight: 600;
 }
 
-.products-card__container > button {
-  grid-column: span 2;
-}
-
-.products-card__btnContainer {
-  display: flex;
+.products-card__btn-container {
   width: 100%;
-  align-items: center;
-  justify-content: center;
+  margin-top: 1.5em;
 }
 
 @media screen and (min-width: 768px) {
