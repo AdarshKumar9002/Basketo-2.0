@@ -1,42 +1,22 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable class-methods-use-this */
 import MenuToggler from './modules/global/menu-toggler.js';
 import ScrollEffect from './modules/global/header-scroll-effect.js';
 import GetCategories from './modules/global/categories.js';
 import API_LINKS from './modules/global/vendor.js';
-import FeaturedProducts from './modules/home/featured-products.js';
-import ProductCardHTML from './modules/home/feature-product-card-html.js';
 import RenderProducts from './modules/home/render-featured-products.js';
-
 
 class HomePage {
   constructor() {
-    this.toggleHeaderMenu();
-    this.headerScrollEffect();
-    this.categories();
+    this.initComponent(MenuToggler, 'menuToggler');
+    this.initComponent(ScrollEffect, 'scrollEffect');
+    this.initComponent(GetCategories, 'categories', API_LINKS.categories);
+    this.initComponent(RenderProducts, 'renderProducts', API_LINKS.limitedProducts);
   }
 
-
-  toggleHeaderMenu() {
-    const menuToggle = new MenuToggler();
-  }
-
-  headerScrollEffect() {
-    const scrollEffect =  new ScrollEffect();
-  }
-
-  categories() {
-    const productCategories = new GetCategories(API_LINKS.categories);
+  // DRY method to initialize components
+  initComponent(ComponentClass, property, ...args) {
+    this[property] = new ComponentClass(...args);
   }
 }
-document.addEventListener('DOMContentLoaded', () => {
-  const homePage = new HomePage();
-});
 
-const a = new FeaturedProducts(API_LINKS.limitedProducts);
+document.addEventListener('DOMContentLoaded', () => new HomePage());
 
-// console.log(a);
-
-// const b = new ProductCardHTML('https://placehold.co/120x160','title',"description", 45, '7%' );
-
-const r = new RenderProducts(API_LINKS.limitedProducts);

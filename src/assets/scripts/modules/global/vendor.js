@@ -1,8 +1,8 @@
 // https://fakeapi.platzi.com/
 
 const API_LINKS = {
-    categories: 'https://api.escuelajs.co/api/v1/categories',
-    limitedProducts: 'https://api.escuelajs.co/api/v1/products?offset=0&limit=16'
+    categories: 'https://dummyjson.com/products/categories',
+    limitedProducts: 'https://dummyjson.com/products?limit=16&select=title,price,rating,images,discountPercentage'
 };
 
 export default API_LINKS;

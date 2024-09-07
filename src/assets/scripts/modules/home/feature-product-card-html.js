@@ -1,11 +1,11 @@
 import SvgIcons from './svg-icons.js';
 
 class ProductCardHTML extends SvgIcons {
-  constructor(img, title, description, price, discount) {
+  constructor(img, title, rating, price, discount) {
     super();
     this.img = img;
     this.name = title;
-    this.description = description;
+    this.rating = rating;
     this.price = price;
     this.discount = discount;
   }
@@ -15,7 +15,7 @@ class ProductCardHTML extends SvgIcons {
     return this.cards();
   }
 
-  createElement(type, className = '', textContent = '') {
+  static createElement(type, className = '', textContent = '') {
     const element = document.createElement(type);
     if (className) element.className = className;
     if (textContent) element.textContent = textContent;
@@ -23,7 +23,7 @@ class ProductCardHTML extends SvgIcons {
   }
 
   cards() {
-    const PRODUCT_CARD_ITEM_ELEMENT = this.createElement('div', 'products-card__item');
+    const PRODUCT_CARD_ITEM_ELEMENT = ProductCardHTML.createElement('div', 'products-card__item flex');
     const PRODUCT_IMG_CONTAINER_ELEMENT = this.cardImageContainer();
     const PRODUCT_DETAILS_CONTAINER_ELEMENT = this.productDetailsContainer();
 
@@ -33,10 +33,10 @@ class ProductCardHTML extends SvgIcons {
   }
 
   cardImageContainer() {
-    const IMG_CONTAINER_ELEMENT = this.createElement('div', 'products-card__product-image');
+    const IMG_CONTAINER_ELEMENT = ProductCardHTML.createElement('div', 'products-card__product-image');
     const PRODUCT_IMAGE = this.cardImage();
     const PRODUCT_DISCOUNT = this.cardDiscount();
-    const PRODUCT_IMAGE_ON_HOVER = this.imgOnHover();
+    const PRODUCT_IMAGE_ON_HOVER = ProductCardHTML.imgOnHover();
 
     IMG_CONTAINER_ELEMENT.appendChild(PRODUCT_IMAGE);
     IMG_CONTAINER_ELEMENT.appendChild(PRODUCT_DISCOUNT);
@@ -46,21 +46,21 @@ class ProductCardHTML extends SvgIcons {
   }
 
   cardImage() {
-    const IMG_ELEMENT = this.createElement('img');
+    const IMG_ELEMENT = ProductCardHTML.createElement('img');
     IMG_ELEMENT.src = this.img;
     IMG_ELEMENT.alt = this.name;
     return IMG_ELEMENT;
   }
 
   cardDiscount() {
-    const DISCOUNT_ELEMENT = this.createElement('span', '', `${this.discount}%`);
+    const DISCOUNT_ELEMENT = ProductCardHTML.createElement('span', '', `${this.discount}%`);
     return DISCOUNT_ELEMENT;
   }
 
-  imgOnHover() {
-    const ON_HOVER_CONTAINER_ELEMENT = this.createElement('div', 'products-card__on-hover-elements');
-    const ADD_TO_CART_ELEMENT = this.addToCartBtnContainer();
-    const BTN_GROUP_ELEMENT = this.btnGroup();
+  static imgOnHover() {
+    const ON_HOVER_CONTAINER_ELEMENT = ProductCardHTML.createElement('div', 'products-card__on-hover-elements');
+    const ADD_TO_CART_ELEMENT = ProductCardHTML.addToCartBtnContainer();
+    const BTN_GROUP_ELEMENT = ProductCardHTML.btnGroup();
 
     ON_HOVER_CONTAINER_ELEMENT.appendChild(ADD_TO_CART_ELEMENT);
     ON_HOVER_CONTAINER_ELEMENT.appendChild(BTN_GROUP_ELEMENT);
@@ -68,23 +68,23 @@ class ProductCardHTML extends SvgIcons {
     return ON_HOVER_CONTAINER_ELEMENT;
   }
 
-  addToCartBtnContainer() {
-    const ADD_TO_CART_BTN_CONTAINER_ELEMENT = this.createElement('div', 'products-card__addToCart');
-    const ADD_TO_CART_BUTTON = this.addToCartBtn();
+  static addToCartBtnContainer() {
+    const ADD_TO_CART_BTN_CONTAINER_ELEMENT = ProductCardHTML.createElement('div', 'products-card__addToCart');
+    const ADD_TO_CART_BUTTON = ProductCardHTML.addToCartBtn();
     ADD_TO_CART_BTN_CONTAINER_ELEMENT.appendChild(ADD_TO_CART_BUTTON);
     return ADD_TO_CART_BTN_CONTAINER_ELEMENT;
   }
 
-  addToCartBtn() {
-    const ADD_TO_CART_BTN_ELEMENT = this.createElement('button', '', 'Add to cart');
+  static addToCartBtn() {
+    const ADD_TO_CART_BTN_ELEMENT = ProductCardHTML.createElement('button', '', 'Add to cart');
     return ADD_TO_CART_BTN_ELEMENT;
   }
 
-  btnGroup() {
-    const BTN_GROUP_CONTAINER_ELEMENT = this.createElement('div', 'products-card__on-hover-buttons');
-    const LIKE_BTN_ELEMENT = this.likeBtn();
-    const COMPARE_BTN_ELEMENT = this.compareBtn();
-    const SHARE_BTN_ELEMENT = this.shareBtn();
+  static btnGroup() {
+    const BTN_GROUP_CONTAINER_ELEMENT = ProductCardHTML.createElement('div', 'products-card__on-hover-buttons');
+    const LIKE_BTN_ELEMENT = ProductCardHTML.likeBtn();
+    const COMPARE_BTN_ELEMENT = ProductCardHTML.compareBtn();
+    const SHARE_BTN_ELEMENT = ProductCardHTML.shareBtn();
 
     BTN_GROUP_CONTAINER_ELEMENT.appendChild(LIKE_BTN_ELEMENT);
     BTN_GROUP_CONTAINER_ELEMENT.appendChild(COMPARE_BTN_ELEMENT);
@@ -92,28 +92,31 @@ class ProductCardHTML extends SvgIcons {
     return BTN_GROUP_CONTAINER_ELEMENT;
   }
 
-  likeBtn() {
-    const LIKE_BTN_ELEMENT = this.createElement('button');
-    LIKE_BTN_ELEMENT.appendChild(this.likeIcon());
+  static likeBtn() {
+    const LIKE_BTN_ELEMENT = ProductCardHTML.createElement('button','flex');
+    LIKE_BTN_ELEMENT.textContent = 'Like';
+    LIKE_BTN_ELEMENT.appendChild(SvgIcons.likeIcon());
     return LIKE_BTN_ELEMENT;
   }
 
-  compareBtn() {
-    const COMPARE_BTN_ELEMENT = this.createElement('button');
-    COMPARE_BTN_ELEMENT.appendChild(this.compareIcon());
+  static compareBtn() {
+    const COMPARE_BTN_ELEMENT = ProductCardHTML.createElement('button','flex');
+    COMPARE_BTN_ELEMENT.textContent = 'Compare';
+    COMPARE_BTN_ELEMENT.appendChild(SvgIcons.compareIcon());
     return COMPARE_BTN_ELEMENT;
   }
 
-  shareBtn() {
-    const SHARE_BTN_ELEMENT = this.createElement('button');
-    SHARE_BTN_ELEMENT.appendChild(this.shareIcon());
+  static shareBtn() {
+    const SHARE_BTN_ELEMENT = ProductCardHTML.createElement('button','flex');
+    SHARE_BTN_ELEMENT.textContent = 'Share';
+    SHARE_BTN_ELEMENT.appendChild(SvgIcons.shareIcon());
     return SHARE_BTN_ELEMENT;
   }
 
   productDetailsContainer() {
-    const PRODUCT_DETAILS_CONTAINER_ELEMENT = this.createElement('div', 'products-card__productDetails');
+    const PRODUCT_DETAILS_CONTAINER_ELEMENT = ProductCardHTML.createElement('div', 'products-card__productDetails flex');
     const PRODUCT_NAME = this.productName();
-    const PRODUCT_DESCRIPTION = this.productDescription();
+    const PRODUCT_DESCRIPTION = this.productRatingContainer();
     const PRODUCT_PRICE = this.productPrice();
 
     PRODUCT_DETAILS_CONTAINER_ELEMENT.appendChild(PRODUCT_NAME);
@@ -123,17 +126,45 @@ class ProductCardHTML extends SvgIcons {
   }
 
   productName() {
-    const PRODUCT_NAME = this.createElement('h4', '', this.name);
+    const PRODUCT_NAME = ProductCardHTML.createElement('h4', '', this.name);
     return PRODUCT_NAME;
   }
 
-  productDescription() {
-    const PRODUCT_DESCRIPTION = this.createElement('p', '', this.description);
-    return PRODUCT_DESCRIPTION;
+  productRatingContainer() {
+    const PRODUCT_RATING__CONTAINER = ProductCardHTML.createElement('div', 'products-card__rating');
+    const PRODUCT_RATING_STAR = this.productRatingStar();
+    const PRODUCT_RATING_TEXT = this.productRatingText();
+
+    PRODUCT_RATING__CONTAINER.appendChild(PRODUCT_RATING_STAR);
+    PRODUCT_RATING__CONTAINER.appendChild(PRODUCT_RATING_TEXT);
+    return PRODUCT_RATING__CONTAINER;
+  }
+  
+  productRatingStar() {
+    const PRODUCT_RATING_STAR = ProductCardHTML.createElement('div', 'products-card__rating-star');
+    const productRating = this.rating;
+    for(let i = 0; i < parseInt(productRating, 10); i+=1) {
+      const star = ProductCardHTML.starIcon(100);
+      PRODUCT_RATING_STAR.appendChild(star);
+    }
+    const halfStar = productRating - Math.floor(productRating);
+    if(halfStar >= 0) {
+      const filledPercent = halfStar * 10;
+      const star = ProductCardHTML.starIcon(filledPercent);
+      PRODUCT_RATING_STAR.appendChild(star);
+    };
+
+    return PRODUCT_RATING_STAR;
+  }
+  
+  productRatingText() {
+    const PRODUCT_RATING__TEXT = ProductCardHTML.createElement('div', 'products-card__rating-text', `${this.rating} out of 5`);
+
+    return PRODUCT_RATING__TEXT;
   }
 
   productPrice() {
-    const PRODUCT_PRICE = this.createElement('h4', '', `$ ${this.price}`);
+    const PRODUCT_PRICE = ProductCardHTML.createElement('div', 'products-card__price', `$${this.price}`);
     return PRODUCT_PRICE;
   }
 }

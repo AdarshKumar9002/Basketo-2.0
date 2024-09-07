@@ -10,12 +10,11 @@ class GetCategories extends ApiCalls {
   async platziApi(link) {
     try {
       const categories = await this.get(link);
-      console.log('paltzi', categories);
 
       return categories;
     } catch (error) {
-      alert(error);
-      throw new Error(error);
+      alert(`Category: ${error}`);
+      throw new Error(`Category: ${error}`);
     }
   }
 
