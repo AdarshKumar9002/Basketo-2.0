@@ -29,7 +29,7 @@ class ProductCardHTML extends SvgIcons {
 
     PRODUCT_CARD_ITEM_ELEMENT.appendChild(PRODUCT_IMG_CONTAINER_ELEMENT);
     PRODUCT_CARD_ITEM_ELEMENT.appendChild(PRODUCT_DETAILS_CONTAINER_ELEMENT);
-    return PRODUCT_CARD_ITEM_ELEMENT;  // Return the full product card element
+    return PRODUCT_CARD_ITEM_ELEMENT;  
   }
 
   cardImageContainer() {
@@ -114,6 +114,8 @@ class ProductCardHTML extends SvgIcons {
   }
 
   productDetailsContainer() {
+    const ANCOR_ELEMENT = ProductCardHTML.createElement('a');
+    ANCOR_ELEMENT.href = '#';
     const PRODUCT_DETAILS_CONTAINER_ELEMENT = ProductCardHTML.createElement('div', 'products-card__productDetails flex');
     const PRODUCT_NAME = this.productName();
     const PRODUCT_DESCRIPTION = this.productRatingContainer();
@@ -122,7 +124,10 @@ class ProductCardHTML extends SvgIcons {
     PRODUCT_DETAILS_CONTAINER_ELEMENT.appendChild(PRODUCT_NAME);
     PRODUCT_DETAILS_CONTAINER_ELEMENT.appendChild(PRODUCT_DESCRIPTION);
     PRODUCT_DETAILS_CONTAINER_ELEMENT.appendChild(PRODUCT_PRICE);
-    return PRODUCT_DETAILS_CONTAINER_ELEMENT;
+
+    ANCOR_ELEMENT.appendChild(PRODUCT_DETAILS_CONTAINER_ELEMENT);
+    
+    return ANCOR_ELEMENT;
   }
 
   productName() {

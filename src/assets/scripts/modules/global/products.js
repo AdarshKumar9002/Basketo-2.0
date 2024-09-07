@@ -1,4 +1,4 @@
-import ApiCalls from '../global/api.js';
+import ApiCalls from './api.js';
 
 class FeaturedProducts extends ApiCalls {
   constructor(link) {
