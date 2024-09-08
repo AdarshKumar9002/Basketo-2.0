@@ -26,7 +26,7 @@
 .products-card__product-image {
   position: relative;
   width: 100%;
-  height: 12em;
+  height: 10em;
 
   img {
     height: 100%;
@@ -47,79 +47,57 @@
     font-weight: 900;
   }
 }
-.products-card__on-hover-elements {
+#compare-btn {
   position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1em;
-  background: rgba(58, 58, 58, 0.72);
-}
-.products-card__on-hover-buttons {
-  display: flex;
-  justify-content: space-evenly;
-  gap: 0.3em;
-  button {
-    flex-direction: column-reverse;
-    color: $white;
-    gap: 0.3em;
-  }
-  svg {
-    fill: $white;
-    width: 16px;
-  }
-}
-.products-card__addToCart {
-  display: flex;
-  align-items: center;
-  button {
-    width: 7.2em;
-    border: 1px solid #b88e2f;
-    background-color: $white;
-    color: #b88e2f;
-    font-size: $font-size-s;
-    font-weight: 600;
-    font-family: $font-family-primary;
-    text-align: center;
-    padding: 0;
-    line-height: 1.5;
-  }
-}
+  bottom: 1em;
+  left: 1em;
 
-.products-card__product-image:hover {
-  .products-card__on-hover-elements {
-    display: flex;
+  svg {
+    width: 12px;
   }
 }
 
 .products-card__productDetails {
   background-color: #f4f5f7;
+  display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: stretch;
-  gap: 0.4em;
+  gap: 0.2em;
   width: 100%;
-  height: 10em;
+  height: 5em;
   padding: 0 0.5em;
   h4 {
-    font-size: $font-size-s;
+    font-size: $font-size-product-title;
     line-height: 1.2;
   }
 }
 .products-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
   svg {
-    width: 1em;
-    font-weight: 900;
+    width: 1.5em;
   }
-  .products-card__rating-text {
-    font-weight: 900;
-    font-size: 0.6em;
+  &:nth-child(2) {
+    font-size: $font-size-xs;
   }
 }
+.product-card__footer {
+  justify-content: space-between;
+}
+.products-card__actions {
+  gap: 0.3em;
+  svg {
+    width: 16px;
+  }
+  button {
+    display: flex;
+  }
+}
+
 .products-card__price {
+  font-size: $font-size-product-price;
   font-weight: 900;
 }
 
