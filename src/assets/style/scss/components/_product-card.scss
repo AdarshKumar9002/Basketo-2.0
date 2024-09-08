@@ -112,7 +112,7 @@
 }
 
 // Small screens 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 320px) {
   .products-card__container {
     grid-template-columns:  1fr;
     

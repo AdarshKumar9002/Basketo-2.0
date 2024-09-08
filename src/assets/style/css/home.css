@@ -545,7 +545,7 @@ header {
   margin-top: 1.5em;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 320px) {
   .products-card__container {
     grid-template-columns: 1fr;
   }
