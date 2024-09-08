@@ -10,6 +10,51 @@ class ProductCardHTML extends SvgIcons {
     this.discount = discount;
   }
 
+  // Hide the discount if it is less than or equal to Zero
+  discountDisplayNone(discountElement) {
+    if (this.discount <= 0) {
+      discountElement.style.display = 'none';
+    }
+  }
+
+  // Calculate the discount price
+  getDiscountedPrice() {
+    if (this.price <= 0 || this.discount <= 0) {
+      return 0;
+    }
+    const discountRate = this.discount / 100;
+    const discountAmount = this.price * discountRate;
+    const discountedPrice = this.price - discountAmount;
+
+    return discountedPrice;
+  }
+
+  static getSliceEnd() {
+    let sliceEnd = 0;
+    const screenWidth = window.innerWidth;
+
+    if (screenWidth < 375) {
+      sliceEnd = 25;
+    } else if (screenWidth < 768) {
+      sliceEnd = 30;
+    } else {
+      sliceEnd = 35;
+    }
+    return sliceEnd;
+  }
+
+  // Check the product name length and slice it if it is too big
+  updateProductTitle(productTitleElement) {
+    const sliceStart = 0;
+    const sliceEnd = ProductCardHTML.getSliceEnd();
+
+    if (this.name && this.name.length > sliceEnd) {
+      let productName = this.name.slice(sliceStart, sliceEnd);
+      productName += '....';
+      productTitleElement.textContent = productName;
+    }
+  }
+
   // Creates and returns the complete card element
   renderCard() {
     return this.cards();
@@ -68,6 +113,9 @@ class ProductCardHTML extends SvgIcons {
       '',
       `${this.discount}%`,
     );
+
+    this.discountDisplayNone(DISCOUNT_ELEMENT);
+
     return DISCOUNT_ELEMENT;
   }
 
@@ -85,7 +133,7 @@ class ProductCardHTML extends SvgIcons {
       'div',
       'products-card__productDetails',
     );
-    const PRODUCT_NAME = this.productName();
+    const PRODUCT_NAME = this.productTitle();
     const PRODUCT_DESCRIPTION = this.productRatingContainer();
     const PRODUCT_CARD_FOOTER = this.productCardFooter();
 
@@ -97,10 +145,11 @@ class ProductCardHTML extends SvgIcons {
   }
 
   // Product Name
-  productName() {
+  productTitle() {
     const ANCOR_ELEMENT = ProductCardHTML.createElement('a');
     ANCOR_ELEMENT.href = '#';
     const PRODUCT_NAME = ProductCardHTML.createElement('h4', '', this.name);
+    this.updateProductTitle(PRODUCT_NAME);
     ANCOR_ELEMENT.appendChild(PRODUCT_NAME);
     return ANCOR_ELEMENT;
   }
@@ -112,7 +161,7 @@ class ProductCardHTML extends SvgIcons {
       'products-card__rating',
     );
     const PRODUCT_RATING_STAR = this.productRatingStar();
-    const PRODUCT_TOTAL_REVIEW = this.productTotalRevies();
+    const PRODUCT_TOTAL_REVIEW = ProductCardHTML.productTotalRevies();
 
     PRODUCT_RATING__CONTAINER.appendChild(PRODUCT_RATING_STAR);
     PRODUCT_RATING__CONTAINER.appendChild(PRODUCT_TOTAL_REVIEW);
@@ -122,29 +171,47 @@ class ProductCardHTML extends SvgIcons {
   productRatingStar() {
     const PRODUCT_RATING_STAR = ProductCardHTML.createElement(
       'div',
-      'products-card__rating-star',
+      'products-card__rating-star'
     );
+  
     const productRating = this.rating;
-    for (let i = 0; i < parseInt(productRating, 10); i += 1) {
+  
+    // Render full stars
+    for (let i = 0; i < Math.floor(productRating); i += 1) {
       const star = ProductCardHTML.starIcon(100);
       PRODUCT_RATING_STAR.appendChild(star);
     }
+  
+    // Render half star (if applicable)
     const halfStar = productRating - Math.floor(productRating);
-    if (halfStar >= 0) {
-      const filledPercent = halfStar * 10;
-      const star = ProductCardHTML.starIcon(filledPercent);
+    if (halfStar > 0) {  
+      const filledPercent = halfStar * 100;
+  
+      const star = ProductCardHTML.starIcon(parseInt(filledPercent, 10));
+      
       PRODUCT_RATING_STAR.appendChild(star);
     }
-
+  
+    // Render blank stars to make a total of 5
+    const blankStars = 5 - Math.ceil(productRating); // Use Math.ceil to account for half-star
+    for (let i = 0; i < blankStars; i += 1) {
+      const star = ProductCardHTML.starIcon(0); 
+      PRODUCT_RATING_STAR.appendChild(star);
+    }
+  
     return PRODUCT_RATING_STAR;
   }
+  
 
   // Product Total Review Count
-  productTotalRevies() {
+  static productTotalRevies() {
+    const max = 999;
+    const min = 1;
+    const totalReview = Math.floor(Math.random() * (max - min + 1)) - min;
     const PRODUCT_TOTAL_REVIEW_ELEMENT = ProductCardHTML.createElement(
       'div',
       'products-card__rating-text',
-      `(500)`,
+      `(${totalReview})`,
     );
 
     return PRODUCT_TOTAL_REVIEW_ELEMENT;
@@ -153,7 +220,7 @@ class ProductCardHTML extends SvgIcons {
   productCardFooter() {
     const PRODUCT_CARD_FOOTER_ELEMENT = ProductCardHTML.createElement(
       'div',
-      'product-card__footer flex',
+      'products-card__footer flex',
     );
     const PRODUCT_PRICE = this.productPrice();
     const PRODUCT_CARD_ACTIONS = ProductCardHTML.cardActions();
@@ -166,12 +233,22 @@ class ProductCardHTML extends SvgIcons {
 
   // Product Price
   productPrice() {
-    const PRODUCT_PRICE = ProductCardHTML.createElement(
+    const PRODUCT_PRICE_ELEMENT = ProductCardHTML.createElement(
       'div',
       'products-card__price',
       `$${this.price}`,
     );
-    return PRODUCT_PRICE;
+    if (this.discount > 0) {
+      PRODUCT_PRICE_ELEMENT.textContent = '';
+      const ORIGINAL_PRICE_ELEMENT = ProductCardHTML.createElement('s');
+      ORIGINAL_PRICE_ELEMENT.textContent = `$${this.price.toFixed(2)}`;
+      const DISCOUNT_PRICE_ELEMENT = ProductCardHTML.createElement('span');
+      DISCOUNT_PRICE_ELEMENT.textContent = `$${this.getDiscountedPrice().toFixed(2)}`;
+
+      PRODUCT_PRICE_ELEMENT.appendChild(ORIGINAL_PRICE_ELEMENT);
+      PRODUCT_PRICE_ELEMENT.appendChild(DISCOUNT_PRICE_ELEMENT);
+    }
+    return PRODUCT_PRICE_ELEMENT;
   }
 
   // Contains Butoons like: like, Cart

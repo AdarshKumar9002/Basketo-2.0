@@ -25,8 +25,19 @@ class RenderProducts {
     return productList.products;
   }
 
+  async removeSpecificProducts() {
+    const bannedProduct = ['beef', 'chicken'];
+    const products = await this.productList();
+    const newProductList = products.filter((product) => {
+      const productTitle = product.title.toLowerCase();
+      return !bannedProduct.some(keyword => productTitle.includes(keyword));
+    });
+    return newProductList;
+  }
+
+
   async render() {
-    const productList = await this.productList();
+    const productList = await this.removeSpecificProducts();
 
     const PRODUCT_CARD_CONTAINER_ELEMENT = document.querySelector(
       '.products-card__container',

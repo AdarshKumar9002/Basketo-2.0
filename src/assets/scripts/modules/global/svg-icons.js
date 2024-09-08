@@ -47,6 +47,7 @@ class SvgIcons {
     const path =
       'M352 224c53 0 96-43 96-96s-43-96-96-96s-96 43-96 96c0 4 .2 8 .7 11.9l-94.1 47C145.4 170.2 121.9 160 96 160c-53 0-96 43-96 96s43 96 96 96c25.9 0 49.4-10.2 66.6-26.9l94.1 47c-.5 3.9-.7 7.8-.7 11.9c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-25.9 0-49.4 10.2-66.6 26.9l-94.1-47c.5-3.9 .7-7.8 .7-11.9s-.2-8-.7-11.9l94.1-47C302.6 213.8 326.1 224 352 224z';
     const shareIcon = SvgIcons.svg(viewBox, className, path, fill);
+    shareIcon.style.stroke= 'red';
     return shareIcon;
   }
 
@@ -60,40 +61,49 @@ class SvgIcons {
     return cartIcon;
   }
 
-  static starIcon(filledPercent) {
-    const viewBox = '0 0 576 512';
-    const className = 'icon-star';
-    const fill = 'url(#star-gradient)';
-    const path = 'M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z';
-
-    
-
-    // Create defs and linearGradient for the fill
-    const DEFS_ELEMENT = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
-    const LINEAR_GRADIENT_ELEMENT = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
-    LINEAR_GRADIENT_ELEMENT.setAttribute('id', 'star-gradient');
-
-    // Create gradient stops based on filledPercent
-    const STOP_1_ELEMENT = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
-    STOP_1_ELEMENT.setAttribute('offset', `${filledPercent}%`);
-    STOP_1_ELEMENT.setAttribute('stop-color', 'gold');
-
-    const STOP_2_ELEMENT = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
-    STOP_2_ELEMENT.setAttribute('offset', `${filledPercent}%`);
-    STOP_2_ELEMENT.setAttribute('stop-color', 'lightgray');
-
-    
-    LINEAR_GRADIENT_ELEMENT.appendChild(STOP_1_ELEMENT);
-    LINEAR_GRADIENT_ELEMENT.appendChild(STOP_2_ELEMENT);
-
-    const starIcon = SvgIcons.svg(viewBox, className, path, fill);
-
-    
-    DEFS_ELEMENT.appendChild(LINEAR_GRADIENT_ELEMENT);
-    starIcon.appendChild(DEFS_ELEMENT);
-
-    return starIcon;
+  static generateUniqueId() {
+    const array = new Uint32Array(1);
+    window.crypto.getRandomValues(array);
+    return `id-${  array[0]}`;
   }
+  
+ static starIcon(filledPercent) {
+  const viewBox = '0 0 576 512';
+  const className = 'icon-star';
+
+  // Generate a unique ID using crypto.getRandomValues()
+  const uniqueId = this.generateUniqueId();
+
+  const fill = `url(#${uniqueId})`;
+  const path = 'M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z';
+
+  // Create defs and linearGradient for the fill
+  const DEFS_ELEMENT = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+  const LINEAR_GRADIENT_ELEMENT = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
+  LINEAR_GRADIENT_ELEMENT.setAttribute('id', uniqueId);
+
+  // Create gradient stops based on filledPercent
+  const STOP_1_ELEMENT = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+  STOP_1_ELEMENT.setAttribute('offset', `${filledPercent}%`);
+  STOP_1_ELEMENT.setAttribute('stop-color', 'gold');
+
+  const STOP_2_ELEMENT = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+  STOP_2_ELEMENT.setAttribute('offset', `${filledPercent}%`);
+  STOP_2_ELEMENT.setAttribute('stop-color', 'lightgray');
+
+  LINEAR_GRADIENT_ELEMENT.appendChild(STOP_1_ELEMENT);
+  LINEAR_GRADIENT_ELEMENT.appendChild(STOP_2_ELEMENT);
+
+  // Create the star icon with the gradient fill
+  const starIcon = SvgIcons.svg(viewBox, className, path, fill);
+
+  DEFS_ELEMENT.appendChild(LINEAR_GRADIENT_ELEMENT);
+  starIcon.appendChild(DEFS_ELEMENT);
+
+  return starIcon;
+}
+
+  
 }
 
 export default SvgIcons;
