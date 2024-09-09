@@ -1,4 +1,4 @@
-import MenuToggler from './modules/global/menu-toggler.js';
+import ToggleController from './modules/global/toggle-hangler.js';
 import ScrollEffect from './modules/global/header-scroll-effect.js';
 import GetCategories from './modules/global/categories.js';
 import API_LINKS from './modules/global/vendor.js';
@@ -8,7 +8,7 @@ import ToggleHref from './modules/global/toogle-homeBtn-href.js';
 
 class HomePage {
   constructor() {
-    this.initComponent(MenuToggler, 'menuToggler');
+    this.initComponent(ToggleController, 'menuToggler','headerMenuBtn','headerNav');
     this.initComponent(ScrollEffect, 'scrollEffect');
     this.initComponent(GetCategories, 'categories', API_LINKS.categories);
     this.initComponent(RenderProducts, 'renderProducts', API_LINKS.limitedProducts);

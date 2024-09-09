@@ -100,10 +100,13 @@ class ProductCardHTML extends SvgIcons {
 
   // Product Image
   cardImage() {
+    const ANCOR_ELEMENT = ProductCardHTML.createElement('a');
+
     const IMG_ELEMENT = ProductCardHTML.createElement('img');
     IMG_ELEMENT.src = this.img;
     IMG_ELEMENT.alt = this.name;
-    return IMG_ELEMENT;
+    ANCOR_ELEMENT.appendChild(IMG_ELEMENT);
+    return ANCOR_ELEMENT;
   }
 
   // Product Discount Display
@@ -122,7 +125,7 @@ class ProductCardHTML extends SvgIcons {
   // Product Compare Button
   static compareBtn() {
     const COMPARE_BTN_ELEMENT = ProductCardHTML.createElement('button');
-    COMPARE_BTN_ELEMENT.id = 'compare-btn';
+    COMPARE_BTN_ELEMENT.className = 'products-card__compare-btn';
     COMPARE_BTN_ELEMENT.appendChild(SvgIcons.compareIcon());
     return COMPARE_BTN_ELEMENT;
   }
@@ -148,24 +151,24 @@ class ProductCardHTML extends SvgIcons {
   productTitle() {
     const ANCOR_ELEMENT = ProductCardHTML.createElement('a');
     ANCOR_ELEMENT.href = '#';
-    const PRODUCT_NAME = ProductCardHTML.createElement('h4', '', this.name);
-    this.updateProductTitle(PRODUCT_NAME);
-    ANCOR_ELEMENT.appendChild(PRODUCT_NAME);
+    const PRODUCT_NAME_ELEMENT = ProductCardHTML.createElement('h4', '', this.name);
+    this.updateProductTitle(PRODUCT_NAME_ELEMENT);
+    ANCOR_ELEMENT.appendChild(PRODUCT_NAME_ELEMENT);
     return ANCOR_ELEMENT;
   }
 
   // Product Rating
   productRatingContainer() {
-    const PRODUCT_RATING__CONTAINER = ProductCardHTML.createElement(
+    const PRODUCT_RATING_CONTAINER_ELEMENT = ProductCardHTML.createElement(
       'div',
       'products-card__rating',
     );
     const PRODUCT_RATING_STAR = this.productRatingStar();
     const PRODUCT_TOTAL_REVIEW = ProductCardHTML.productTotalRevies();
 
-    PRODUCT_RATING__CONTAINER.appendChild(PRODUCT_RATING_STAR);
-    PRODUCT_RATING__CONTAINER.appendChild(PRODUCT_TOTAL_REVIEW);
-    return PRODUCT_RATING__CONTAINER;
+    PRODUCT_RATING_CONTAINER_ELEMENT.appendChild(PRODUCT_RATING_STAR);
+    PRODUCT_RATING_CONTAINER_ELEMENT.appendChild(PRODUCT_TOTAL_REVIEW);
+    return PRODUCT_RATING_CONTAINER_ELEMENT;
   }
 
   productRatingStar() {
@@ -270,6 +273,7 @@ class ProductCardHTML extends SvgIcons {
   // Like Btn
   static likeBtn() {
     const LIKE_BTN_ELEMENT = ProductCardHTML.createElement('button');
+    LIKE_BTN_ELEMENT.className = 'product-card__like-btn';
     LIKE_BTN_ELEMENT.appendChild(SvgIcons.likeIcon());
     return LIKE_BTN_ELEMENT;
   }
@@ -277,6 +281,7 @@ class ProductCardHTML extends SvgIcons {
   // Cart Button
   static cartButton() {
     const CART_BTN_ELEMENT = ProductCardHTML.createElement('button');
+    CART_BTN_ELEMENT.className = 'product-card__add-to-cart-btn';
     CART_BTN_ELEMENT.appendChild(SvgIcons.cartIcon());
 
     return CART_BTN_ELEMENT;
