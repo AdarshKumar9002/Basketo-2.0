@@ -1,5 +1,5 @@
-import FeaturedProducts from '../global/products.js';
-import ProductCardHTML from '../global/product-card-html.js';
+import FeaturedProducts from '../global/api/products.js';
+import ProductCardHTML from '../global/api/product-card-html.js';
 
 class RenderProducts {
   constructor(link) {

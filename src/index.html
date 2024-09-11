@@ -128,8 +128,13 @@
             />
           </svg>
         </a>
-        <!-- Search Button -->
-        <button id="search-btn-nav" aria-label="Click to open search box">
+        <!-- Open search box -->
+        <button
+          class="search-btn-nav"
+          aria-controls="search-box-popup"
+          aria-expanded="false"
+          aria-label="Click to open search box"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
@@ -168,9 +173,9 @@
         </a>
       </div>
 
-      <div class="search-box-container">
+      <div data-state="false" id="search-box-popup" class="search-box-container">
         <div class="search-box-container_top">
-          <button id="back-btn" class="search-box-container__back-btn">
+          <button id="back-btn" class="search-btn-nav">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 448 512"

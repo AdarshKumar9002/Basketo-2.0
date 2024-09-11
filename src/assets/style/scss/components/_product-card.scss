@@ -89,7 +89,7 @@
 .products-card__price {
   font-size: $font-size-product-price;
   font-weight: 900;
-  s{
+  s {
     font-size: 0.5rem;
     margin-right: 0.5em;
   }
@@ -104,18 +104,15 @@
   }
 }
 
-
-
 .products-card__btn-container {
   width: 100%;
   margin-top: 1.5em;
 }
 
-// Small screens 
+// Small screens
 @media screen and (max-width: 320px) {
   .products-card__container {
-    grid-template-columns:  1fr;
-    
+    grid-template-columns: 1fr;
   }
   .products-card__item {
     height: 100%;
@@ -123,16 +120,15 @@
   }
   .products-card__product-image {
     height: 7em;
-}
+  }
   .products-card__productDetails {
-   height: 100%;
+    height: 100%;
   }
 
   .products-card__footer {
     flex-direction: column;
     align-items: flex-start;
   }
- 
 }
 
 // Tablet 768px

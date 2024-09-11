@@ -1,4 +1,4 @@
-import SvgIcons from './svg-icons.js';
+import SvgIcons from '../svg-icons.js';
 
 class ProductCardHTML extends SvgIcons {
   constructor(img, title, rating, price, discount) {
@@ -101,7 +101,7 @@ class ProductCardHTML extends SvgIcons {
   // Product Image
   cardImage() {
     const ANCOR_ELEMENT = ProductCardHTML.createElement('a');
-
+    ANCOR_ELEMENT.href = '#';
     const IMG_ELEMENT = ProductCardHTML.createElement('img');
     IMG_ELEMENT.src = this.img;
     IMG_ELEMENT.alt = this.name;
@@ -282,7 +282,7 @@ class ProductCardHTML extends SvgIcons {
   static cartButton() {
     const CART_BTN_ELEMENT = ProductCardHTML.createElement('button');
     CART_BTN_ELEMENT.className = 'product-card__add-to-cart-btn';
-    CART_BTN_ELEMENT.appendChild(SvgIcons.cartIcon());
+    CART_BTN_ELEMENT.appendChild(SvgIcons.addToCartIcon());
 
     return CART_BTN_ELEMENT;
   }
