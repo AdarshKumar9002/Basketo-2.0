@@ -5,12 +5,15 @@ import API_LINKS from './modules/global/vendor.js';
 import RenderProducts from './modules/home/render-featured-products.js';
 import ToggleHref from './modules/global/toogle-homeBtn-href.js';
 import SetSearchPostion from './modules/global/search/search-postion.js';
+import SearchHistoryManager from './modules/global/search/searchHistoryManager.js';
 
 
 class HomePage {
   constructor() {
     this.initComponent(ToggleController, 'menuToggler','headerMenuBtn','headerNav');
     this.initComponent(ToggleController, 'searchToggler','search-btn-nav','search-box-popup');
+    this.initComponent(SetSearchPostion, 'setSearchPostion');
+    this.initComponent(SearchHistoryManager, 'searchHistoryManager');
     this.initComponent(SetSearchPostion, 'setSearchPostion');
     this.initComponent(ScrollEffect, 'scrollEffect');
     this.initComponent(GetCategories, 'categories', API_LINKS.categories);
@@ -35,3 +38,4 @@ document.addEventListener('DOMContentLoaded', () => new HomePage());
 
 //   observer.observe(window, { childList: true, subtree: true });
 // };
+
