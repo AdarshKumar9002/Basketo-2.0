@@ -16,11 +16,16 @@ class SearchHistoryManager extends LocalStorageManger {
     this.addListeners();
   }
 
+  static count = 4;
+
   setHistory() {
     const searchHistoryResult = this.SEARCH_INPUT_ELEMENT.value.trim();
 
     const history = JSON.parse(localStorage.getItem('searchHistory')) || [];
-    history.push(searchHistoryResult);
+    if(history.includes(searchHistoryResult)) {
+      return;
+    }
+    history.unshift(searchHistoryResult);
 
     LocalStorageManger.saveToLocalStorage(
       'searchHistory',
@@ -49,8 +54,18 @@ class SearchHistoryManager extends LocalStorageManger {
     return HISTORY_LIST_ELEMENT;
   }
 
+  static saveLimitedHistory() {
+    let history = SearchHistoryManager.getHistory();
+
+    const historyLength = history.length;
+    if (historyLength > 5) {
+      history = history.slice(0, 5);
+    }
+    return history;
+  }
+
   populateHistoryList() {
-    const history = SearchHistoryManager.getHistory();
+    const history = SearchHistoryManager.saveLimitedHistory();
 
     this.SEARCH_HISTORY_LIST_ELEMENT.innerHTML = '';
     history.forEach((item) => {
@@ -70,7 +85,16 @@ class SearchHistoryManager extends LocalStorageManger {
     return newHistoryList;
   }
 
-  static deleteHistory(event) {
+  static replaceHistoryItem(searchHistoryListElement) {
+    const history = SearchHistoryManager.getHistory();
+    if(history.length <= 5 || history.length < 1) return;
+    const nextHistoryItem = history.at(SearchHistoryManager.count);
+    const NEXT_HISTORY_ELEMENT = SearchHistoryManager.listElementHTML(nextHistoryItem);
+    searchHistoryListElement.appendChild(NEXT_HISTORY_ELEMENT);
+  
+  }
+
+  static deleteHistory(event) {    
     const targetList = event.target.closest('button');
     if (!targetList) return;
 
@@ -97,15 +121,11 @@ class SearchHistoryManager extends LocalStorageManger {
       }
     });
 
-    this.SEARCH_HISTORY_LIST_ELEMENT.addEventListener(
-      'click',
-      SearchHistoryManager.deleteHistory,
-    );
-
-    this.SEARCH_HISTORY_LIST_ELEMENT.addEventListener(
-      'click',
-      SearchHistoryManager.searchFromHistory,
-    );
+    this.SEARCH_HISTORY_LIST_ELEMENT.addEventListener('click', (event)=> {
+      SearchHistoryManager.deleteHistory(event);
+      SearchHistoryManager.searchFromHistory(event);
+      SearchHistoryManager.replaceHistoryItem(this.SEARCH_HISTORY_LIST_ELEMENT);
+    });
   }
 }
 
