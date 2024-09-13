@@ -1,7 +1,7 @@
-import LocalStorageManger from '../local-history-manager.js';
+import LocalStorageManager from '../local-history-manager.js';
 import SvgIcons from '../svg-icons.js';
 
-class SearchHistoryManager extends LocalStorageManger {
+class SearchHistoryManager extends LocalStorageManager {
   constructor() {
     super();
     this.SEARCH_BOX_ELEMENT = document.querySelector('.search-box-container');
@@ -12,119 +12,144 @@ class SearchHistoryManager extends LocalStorageManger {
     );
     this.SEARCH_HISTORY_LIST_ELEMENT =
       this.SEARCH_HISTORY_ELEMENT.querySelector('ul');
-    this.populateHistoryList();
-    this.addListeners();
+    this.displayHistoryList();
+    this.attachEventListeners();
   }
 
-  static count = 4;
+  // Counter for tracking the search history item position
+  static historyItemCounter = 4;
 
-  setHistory() {
-    const searchHistoryResult = this.SEARCH_INPUT_ELEMENT.value.trim();
-
+  // Save new search entry to history
+  saveSearchHistory() {
+    const searchEntry = this.SEARCH_INPUT_ELEMENT.value.trim();
     const history = JSON.parse(localStorage.getItem('searchHistory')) || [];
-    if(history.includes(searchHistoryResult)) {
+
+    // Prevent adding duplicate entries to history
+    if (history.includes(searchEntry)) {
       return;
     }
-    history.unshift(searchHistoryResult);
 
-    LocalStorageManger.saveToLocalStorage(
+    // Add new entry to the start of the history list
+    history.unshift(searchEntry);
+
+    // Save updated history list to local storage
+    LocalStorageManager.saveToLocalStorage(
       'searchHistory',
       JSON.stringify(history),
     );
   }
 
-  static getHistory() {
+  // Retrieve search history from local storage
+  static fetchSearchHistory() {
     const history = JSON.parse(
-      LocalStorageManger.retrieveFromLocalStorage('searchHistory'),
+      LocalStorageManager.retrieveFromLocalStorage('searchHistory'),
     );
     return history;
   }
 
-  static listElementHTML(history) {
-    const HISTORY_LIST_ELEMENT = document.createElement('li');
-    const HISTORY_TEXT_ELEMENT = document.createElement('div');
-    const HISTORY_DELETE_BTN_ELEMENT = document.createElement('button');
-    const closeBtnSvgIcon = SvgIcons.closeBtnIcon();
-    HISTORY_TEXT_ELEMENT.textContent = history;
-    HISTORY_DELETE_BTN_ELEMENT.appendChild(closeBtnSvgIcon);
+  // Generate HTML for a search history list item
+  static createHistoryListItem(historyEntry) {
+    const listItemElement = document.createElement('li');
+    const textElement = document.createElement('div');
+    const deleteButtonElement = document.createElement('button');
+    const closeButtonIcon = SvgIcons.closeBtnIcon();
 
-    HISTORY_LIST_ELEMENT.appendChild(HISTORY_TEXT_ELEMENT);
-    HISTORY_LIST_ELEMENT.appendChild(HISTORY_DELETE_BTN_ELEMENT);
+    textElement.textContent = historyEntry;
 
-    return HISTORY_LIST_ELEMENT;
+    deleteButtonElement.appendChild(closeButtonIcon);
+
+    listItemElement.appendChild(textElement);
+    listItemElement.appendChild(deleteButtonElement);
+
+    return listItemElement;
   }
 
-  static saveLimitedHistory() {
-    let history = SearchHistoryManager.getHistory();
-
-    const historyLength = history.length;
-    if (historyLength > 5) {
+  // Limit the search history to a maximum of 5 entries
+  static limitSearchHistory() {
+    let history = SearchHistoryManager.fetchSearchHistory();
+    if (history.length > 5) {
       history = history.slice(0, 5);
     }
     return history;
   }
 
-  populateHistoryList() {
-    const history = SearchHistoryManager.saveLimitedHistory();
+  // Populate the search history list on the UI
+  displayHistoryList() {
+    const limitedHistory = SearchHistoryManager.limitSearchHistory();
 
     this.SEARCH_HISTORY_LIST_ELEMENT.innerHTML = '';
-    history.forEach((item) => {
+
+    // Create and append list items for each history entry
+    limitedHistory.forEach((entry) => {
       this.SEARCH_HISTORY_LIST_ELEMENT.appendChild(
-        SearchHistoryManager.listElementHTML(item),
+        SearchHistoryManager.createHistoryListItem(entry),
       );
     });
   }
 
-  static removeHistoryItem(historyItem) {
-    const history = SearchHistoryManager.getHistory();
-    const newHistoryList = history.filter((item) => item !== historyItem);
-    LocalStorageManger.saveToLocalStorage(
+  // Remove a specific search history item
+  static deleteHistoryEntry(historyEntry) {
+    const history = SearchHistoryManager.fetchSearchHistory();
+    const updatedHistory = history.filter((entry) => entry !== historyEntry);
+
+    // Save updated history list to local storage
+    LocalStorageManager.saveToLocalStorage(
       'searchHistory',
-      JSON.stringify(newHistoryList),
+      JSON.stringify(updatedHistory),
     );
-    return newHistoryList;
+
+    return updatedHistory;
   }
 
-  static replaceHistoryItem(searchHistoryListElement) {
-    const history = SearchHistoryManager.getHistory();
-    if(history.length <= 5 || history.length < 1) return;
-    const nextHistoryItem = history.at(SearchHistoryManager.count);
-    const NEXT_HISTORY_ELEMENT = SearchHistoryManager.listElementHTML(nextHistoryItem);
-    searchHistoryListElement.appendChild(NEXT_HISTORY_ELEMENT);
-  
+  // Replace a search history item with the next one in the history
+  static replaceHistoryListItem(listElement) {
+    const history = SearchHistoryManager.fetchSearchHistory();
+    if (history.length <= 5 || history.length < 1) return;
+
+    const nextHistoryItem = history.at(SearchHistoryManager.historyItemCounter);
+    const nextListItem =
+      SearchHistoryManager.createHistoryListItem(nextHistoryItem);
+
+    listElement.appendChild(nextListItem);
   }
 
-  static deleteHistory(event) {    
-    const targetList = event.target.closest('button');
-    if (!targetList) return;
+  // Handle deletion of a search history item when the delete button is clicked
+  static handleHistoryDeletion(event) {
+    const targetButton = event.target.closest('button');
+    if (!targetButton) return;
 
-    const listItem = targetList.closest('li');
-    const historyItem = listItem.querySelector('div').textContent;
+    const listItem = targetButton.closest('li');
+    const historyEntry = listItem.querySelector('div').textContent;
 
-    SearchHistoryManager.removeHistoryItem(historyItem);
+    // Remove the history entry from local storage
+    SearchHistoryManager.deleteHistoryEntry(historyEntry);
 
     listItem.remove();
   }
 
-  static searchFromHistory(event, searchProductfn) {
-    const targetList = event.target.closest('button');
-    if (targetList) return;
+  // Handle search action triggered by clicking a history item
+  static handleSearchFromHistory(event, searchProductCallback) {
+    const targetButton = event.target.closest('button');
+    if (targetButton) return;
 
-    searchProductfn();
+    searchProductCallback();
   }
 
-  addListeners() {
+  // Attach event listeners to handle search input and history list actions
+  attachEventListeners() {
     this.SEARCH_INPUT_ELEMENT.addEventListener('keypress', (event) => {
       if (event.key === 'Enter') {
-        this.setHistory();
-        this.populateHistoryList();
+        this.saveSearchHistory();
+        this.displayHistoryList();
       }
     });
 
-    this.SEARCH_HISTORY_LIST_ELEMENT.addEventListener('click', (event)=> {
-      SearchHistoryManager.deleteHistory(event);
-      SearchHistoryManager.searchFromHistory(event);
-      SearchHistoryManager.replaceHistoryItem(this.SEARCH_HISTORY_LIST_ELEMENT);
+    this.SEARCH_HISTORY_LIST_ELEMENT.addEventListener('click', (event) => {
+      SearchHistoryManager.handleHistoryDeletion(event);
+      SearchHistoryManager.handleSearchFromHistory(event);
+      SearchHistoryManager.replaceHistoryListItem(
+        this.SEARCH_HISTORY_LIST_ELEMENT,
+      );
     });
   }
 }
