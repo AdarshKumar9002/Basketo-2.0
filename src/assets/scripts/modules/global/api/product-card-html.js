@@ -274,6 +274,7 @@ class ProductCardHTML extends SvgIcons {
   static likeBtn() {
     const LIKE_BTN_ELEMENT = ProductCardHTML.createElement('button');
     LIKE_BTN_ELEMENT.className = 'product-card__like-btn';
+    LIKE_BTN_ELEMENT.setAttribute('data-wishlist', 'notAdded');
     LIKE_BTN_ELEMENT.appendChild(SvgIcons.likeIcon());
     return LIKE_BTN_ELEMENT;
   }

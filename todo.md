@@ -6,15 +6,14 @@
 
 - Create a div that take whole page. <!-- Done -->
 - it will have a search box and a btn inside the input. <!-- Done -->
-- search box will have a container that will show suggestion or history. 
+- search box will have a container that will show suggestion or history. <!-- Done --> 
 
 **Desktop**
 
-- On clicking on Seach icon will replace the nav with seach box
-- search box will have a btn inside it
-- the seach box will have a cancle icon
+- On clicking on Seach icon will replace the nav with seach box. <!-- Done -->
+- search box will search when click on enter or search btn. <!-- Done -->
 - clicking on cancel or outside the search box will replace the search box with nav
-- search box will have a container that will show suggestion or history.
+- search box will have a container that will show suggestion or history. <!-- Done -->
 
 ### login
 
@@ -22,7 +21,7 @@
 
 ### Product Card HTML logic
 
-- make it global
+- make it global. <!-- Done -->
 
 ### show products
 

@@ -6,6 +6,7 @@ import RenderProducts from './modules/home/render-featured-products.js';
 import ToggleHref from './modules/global/toogle-homeBtn-href.js';
 import SetSearchPostion from './modules/global/search/search-postion.js';
 import SearchHistoryManager from './modules/global/search/searchHistoryManager.js';
+import AddToWishList from './modules/global/add-to-wishlist.js';
 
 
 class HomePage {
@@ -18,6 +19,7 @@ class HomePage {
     this.initComponent(ScrollEffect, 'scrollEffect');
     this.initComponent(GetCategories, 'categories', API_LINKS.categories);
     this.initComponent(RenderProducts, 'renderProducts', API_LINKS.limitedProducts);
+    // this.initComponent(AddToWishList, 'addToWishlist', 'product-card__like-btn');
     ToggleHref.toggle();
   }
 
@@ -28,6 +30,12 @@ class HomePage {
 }
 
 document.addEventListener('DOMContentLoaded', () => new HomePage());
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(()=> {
+   // eslint-disable-next-line no-new
+   new AddToWishList('product-card__like-btn');
+  },3000);
+});
 
 
 // // Set up a MutationObserver to monitor changes in the cart element and update totals accordingly
