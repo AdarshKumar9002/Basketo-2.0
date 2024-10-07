@@ -67,7 +67,14 @@ class SearchHistoryManager extends LocalStorageManager {
   // Limit the search history to a maximum of 5 entries
   static limitSearchHistory() {
     let history = SearchHistoryManager.fetchSearchHistory();
-    if (history.length > 5) {
+    const HISTORY_LENGTH = 5;
+    if (
+      history === null ||
+      history === undefined
+    ) {
+      return 0;
+    }
+    if (history.length > HISTORY_LENGTH) {
       history = history.slice(0, 5);
     }
     return history;
@@ -78,6 +85,14 @@ class SearchHistoryManager extends LocalStorageManager {
     const limitedHistory = SearchHistoryManager.limitSearchHistory();
 
     this.SEARCH_HISTORY_LIST_ELEMENT.innerHTML = '';
+
+    if (
+      limitedHistory === null ||
+      limitedHistory === undefined ||
+      limitedHistory === 0
+    ) {
+      return;
+    }
 
     // Create and append list items for each history entry
     limitedHistory.forEach((entry) => {

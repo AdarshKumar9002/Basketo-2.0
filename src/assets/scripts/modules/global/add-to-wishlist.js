@@ -26,18 +26,6 @@ class AddToWishList extends SvgIcons {
     }
   
   }
-  // toggleLIkeIcon() {
-  //   this.ADD_TO_WISHLIST.forEach((btn) => {
-  //     const isWishlistAdded = btn.getAttribute('data-wishlist');
-  //     if (isWishlistAdded === 'notOpened') {
-  //       btn.appendChild(SvgIcons.likeIcon());
-  //       btn.setAttribute('data-wishlist', 'opened');
-  //     } else {
-  //       btn.appendChild(SvgIcons.filledLikeIcon());
-  //       btn.setAttribute('data-wishlist', 'notOpened');
-  //     }
-  //   });
-  // }
 
   attachListeners() {
     this.ADD_TO_WISHLIST.forEach((btn) => {
