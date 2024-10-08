@@ -697,6 +697,27 @@ header {
     font-size: 1em;
   }
 }
+#msg-box {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  bottom: 4em;
+}
+
+#product-added-msg {
+  display: flex;
+  background-color: #fff;
+  color: #333333;
+  padding: 0.5em 1em;
+  border-radius: 15px;
+  margin: 0 auto;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: opacity 0.5s ease-out;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
 footer {
   display: grid;
   /* Uncomment and adjust if needed */
