@@ -10,7 +10,7 @@ class AddToWishList extends SvgIcons {
     this.attachListeners();
   }
 
-  // Show the "Added to wishlist" message and remove it after some time. 
+  // Show the "Added to wishlist" message and remove it after some time.
   static showProductAddedMsg() {
     const MSG_BOX_ELEMENT = document.getElementById('msg-box');
     MSG_BOX_ELEMENT.innerHTML = '';
@@ -19,6 +19,7 @@ class AddToWishList extends SvgIcons {
       const MSG_CONTAINER_ELEMENT =
         document.getElementById('product-added-msg');
       MSG_CONTAINER_ELEMENT.style.opacity = 0;
+      setTimeout(() => MSG_CONTAINER_ELEMENT.remove(), 600);
     }, 3000);
   }
 
@@ -45,7 +46,6 @@ class AddToWishList extends SvgIcons {
     this.ADD_TO_WISHLIST.forEach((btn) => {
       btn.addEventListener('click', (event) => {
         this.toggleLIkeIcon(event);
-        
       });
     });
   }
