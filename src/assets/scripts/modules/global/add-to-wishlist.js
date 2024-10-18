@@ -14,7 +14,7 @@ class AddToWishList extends SvgIcons {
   static showProductAddedMsg() {
     const MSG_BOX_ELEMENT = document.getElementById('msg-box');
     MSG_BOX_ELEMENT.innerHTML = '';
-    ProdutctAddedMsg.addToCartMsg();
+    ProdutctAddedMsg.addToWishlistMsg();
     setTimeout(() => {
       const MSG_CONTAINER_ELEMENT =
         document.getElementById('product-added-msg');
