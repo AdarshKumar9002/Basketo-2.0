@@ -8,6 +8,7 @@ import SetSearchPostion from './modules/global/search/search-postion.js';
 import SearchHistoryManager from './modules/global/search/searchHistoryManager.js';
 import AddToWishList from './modules/global/add-to-wishlist.js';
 import SeeMoreTopProducts from './modules/home/see-more-product.js';
+import Newsletter from './modules/global/newsletter.js';
 
 class HomePage {
   constructor() {
@@ -30,6 +31,7 @@ class HomePage {
     this.initComponent(GetCategories, 'categories', API_LINKS.categories);
     this.initComponent(RenderTopProducts, 'renderProducts');
     this.initComponent(SeeMoreTopProducts, 'SeeMoreTopProducts');
+    this.initComponent(Newsletter, 'newsletter');
     // this.initComponent(AddToWishList, 'addToWishlist', 'product-card__like-btn');
     ToggleHref.toggle();
   }

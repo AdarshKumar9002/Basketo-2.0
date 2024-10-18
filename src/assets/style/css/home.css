@@ -773,6 +773,15 @@ footer nav ul {
   border: none;
   border-bottom: 1px solid #000;
 }
+.newsletter input[type=email]:not(:placeholder-shown):invalid {
+  border: 2px solid #ff0000;
+}
+.newsletter input:not(:placeholder-shown) {
+  border: 2px solid #008000;
+}
+.newsletter input:placeholder-shown {
+  border-bottom: 1px solid #000;
+}
 .newsletter button {
   margin-top: 0.5em;
   width: 7em;
@@ -783,6 +792,11 @@ footer nav ul {
   font-family: "Poppins", "Source Code Pro", sans-serif;
   text-align: center;
   line-height: 1.8;
+}
+
+#newsletter-error-msg {
+  font-size: 0.8rem;
+  color: #ff0000;
 }
 
 .policies {
