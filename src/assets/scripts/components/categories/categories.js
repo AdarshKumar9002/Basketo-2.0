@@ -1,4 +1,4 @@
-import ApiCalls from './api.js';
+import ApiCalls from '../../reusable/api.js';
 
 class GetCategories extends ApiCalls {
   constructor(link) {

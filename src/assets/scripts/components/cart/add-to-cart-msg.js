@@ -1,4 +1,4 @@
-import ProdutctAddedMsg from './product-added-msg.js';
+import ProdutctAddedMsg from '../../reusable/product-added-msg.js';
 
 class AddToCartMessage {
   constructor() {

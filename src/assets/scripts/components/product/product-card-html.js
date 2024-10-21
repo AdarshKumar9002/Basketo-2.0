@@ -1,4 +1,4 @@
-import SvgIcons from '../svg-icons.js';
+import SvgIcons from '../../local/svg-icons.js';
 
 class ProductCardHTML extends SvgIcons {
   constructor(img, title, rating, price, discount) {

@@ -1,4 +1,4 @@
-import RenderProductCard from '../global/api/render-product-card.js';
+import RenderProductCard from './render-product-card.js';
 
 class RenderTopProducts {
   constructor() {

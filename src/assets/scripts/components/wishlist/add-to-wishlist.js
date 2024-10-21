@@ -1,5 +1,5 @@
-import ProdutctAddedMsg from './product-added-msg.js';
-import SvgIcons from './svg-icons.js';
+import ProdutctAddedMsg from '../../reusable/product-added-msg.js';
+import SvgIcons from '../../local/svg-icons.js';
 
 class AddToWishList extends SvgIcons {
   constructor(linkBtnClass) {

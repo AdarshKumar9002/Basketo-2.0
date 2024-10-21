@@ -1,5 +1,5 @@
-import LocalStorageManager from '../local-history-manager.js';
-import SvgIcons from '../svg-icons.js';
+import LocalStorageManager from '../../reusable/local-history-manager.js';
+import SvgIcons from '../../local/svg-icons.js';
 
 class SearchHistoryManager extends LocalStorageManager {
   constructor() {

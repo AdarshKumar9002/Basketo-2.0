@@ -1,4 +1,4 @@
-import errorMsg from '../local.js';
+import errorMsg from '../local/errorMsg.js';
 
 class ApiCalls {
 

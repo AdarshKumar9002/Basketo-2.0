@@ -1,15 +1,11 @@
 class ToggleController {
   constructor(triggerClass, targetId) {
-    // Get all elements that trigger the toggle using the class name
     this.TRIGGRED_ELEMENTS = document.getElementsByClassName(triggerClass);
 
-    // Convert the HTMLCollection of trigger elements into an array 
     this.TRIGGRED_ELEMENTS_ARRAY = Array.from(this.TRIGGRED_ELEMENTS);
 
-    // Get the target element that will be toggled by its ID
     this.TARGET_ELEMENTS = document.getElementById(targetId);
 
-    // Add click event listeners to each trigger element
     this.addEventListeners(this.TRIGGRED_ELEMENTS_ARRAY, this.TARGET_ELEMENTS);
   }
 
@@ -31,7 +27,7 @@ class ToggleController {
 
   // Toggle between opening and closing the target element
   toggleState() {
-    const menuState = this.TARGET_ELEMENTS.getAttribute('data-state'); 
+    const menuState = this.TARGET_ELEMENTS.getAttribute('data-state');
     if (menuState === 'open') {
       this.deactivate();
     } else {
@@ -50,6 +46,3 @@ class ToggleController {
 }
 
 export default ToggleController;
-
-
-
