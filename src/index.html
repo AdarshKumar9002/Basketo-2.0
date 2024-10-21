@@ -248,6 +248,15 @@
     <section class="hero">
       <div class="hero__image">
         <picture>
+          <!-- Mobile -->
+          <source media="(max-width: 767px)" srcset="./assets/img/hero-image3.jpg" type="image/jpg">
+          <!-- Tablets -->
+          <source media="(min-width: 768px) and (max-width: 1079px)" srcset="./assets/img/hero-image3.jpg" type="image/jpg">
+          <!-- PC small -->
+          <source media="(min-width: 1080px) and (max-width: 1439px)" srcset="./assets/img/hero-image3.jpg" type="image/jpg">
+          <!-- PC large -->
+          <source media="(min-width: 1440px)" srcset="./assets/img/hero-image3.jpg" type="image/jpg">
+
           <img src="./assets/img/hero-image3.jpg" alt="img" />
         </picture>
       </div>
@@ -256,7 +265,7 @@
           Discover Our Latest <br />
           Fashion Collection
         </h1>
-        <button>Shop now</button>
+        <a href="#top-products">Shop now</a>
       </div>
     </section>
 
@@ -351,7 +360,7 @@
       </section>
 
       <!-- == Top Products == -->
-      <section class="products-card">
+      <section id="top-products" class="products-card">
         <h3>Top Products</h3>
         <div class="products-card__container"></div>
         <div class="products-card__btn-container flex">
