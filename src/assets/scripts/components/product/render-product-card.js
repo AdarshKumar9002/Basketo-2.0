@@ -15,15 +15,16 @@ class RenderProductCard {
   }
 
   // Create the product card and return its DOM element
-  static productsCardHTML(img, title, description, price, discount) {
+  static productsCardHTML(productId, img, title, description, price, discount, index) {
     const cardHTML = new ProductCardHTML(
+      productId,
       img,
       title,
       description,
       price,
       discount,
     );
-    return cardHTML.renderCard();
+    return cardHTML.renderCard(index);
   }
 
   //   Append the cards to the container element
@@ -36,17 +37,19 @@ class RenderProductCard {
       `.${cardContainerElement}`,
     );
 
-    productList.forEach((product) => {
+    productList.forEach((product, index) => {
       const img = product.images[0];
       const discount = Math.round(product.discountPercentage);
 
       PRODUCT_CARD_CONTAINER_ELEMENT.appendChild(
         RenderProductCard.productsCardHTML(
+          product.id,
           img,
           product.title,
           product.rating,
           product.price,
           discount,
+          index
         ),
       );
     });

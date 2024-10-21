@@ -1,8 +1,10 @@
 import SvgIcons from '../../local/svg-icons.js';
+import GenerateURL from './genrate-unique-product-url.js';
 
 class ProductCardHTML extends SvgIcons {
-  constructor(img, title, rating, price, discount) {
+  constructor(id, img, title, rating, price, discount) {
     super();
+    this.productId = id;
     this.img = img;
     this.name = title;
     this.rating = rating;
@@ -73,6 +75,9 @@ class ProductCardHTML extends SvgIcons {
       'div',
       'products-card__item flex',
     );
+
+    PRODUCT_CARD_ITEM_ELEMENT.id =this.productId;
+
     const PRODUCT_IMG_CONTAINER_ELEMENT = this.cardImageContainer();
     const PRODUCT_DETAILS_CONTAINER_ELEMENT = this.productDetailsContainer();
 
@@ -101,7 +106,7 @@ class ProductCardHTML extends SvgIcons {
   // Product Image
   cardImage() {
     const ANCOR_ELEMENT = ProductCardHTML.createElement('a');
-    ANCOR_ELEMENT.href = '#';
+    ANCOR_ELEMENT.href = GenerateURL.generateURL(this.productId, this.name);
     const IMG_ELEMENT = ProductCardHTML.createElement('img');
     IMG_ELEMENT.src = this.img;
     IMG_ELEMENT.alt = this.name;
@@ -150,7 +155,7 @@ class ProductCardHTML extends SvgIcons {
   // Product Name
   productTitle() {
     const ANCOR_ELEMENT = ProductCardHTML.createElement('a');
-    ANCOR_ELEMENT.href = '#';
+    ANCOR_ELEMENT.href = GenerateURL.generateURL(this.productId, this.name);
     const PRODUCT_NAME_ELEMENT = ProductCardHTML.createElement('h4', '', this.name);
     this.updateProductTitle(PRODUCT_NAME_ELEMENT);
     ANCOR_ELEMENT.appendChild(PRODUCT_NAME_ELEMENT);
