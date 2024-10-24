@@ -12,6 +12,12 @@
       color: $black;
       content: ">";
     }
+    li.breadcrumb--active::before {
+      content: "|";
+    }
+    li.breadcrumb--active + li {
+       display: none;
+    }
   }
   a {
     color: #9f9f9f;
@@ -24,7 +30,7 @@
 }
 
 @media screen and (min-width: 1080px) {
-    .breadcrumb {
-        background: $secondary-color;
-      }
+  .breadcrumb {
+    background: $secondary-color;
+  }
 }

@@ -435,6 +435,12 @@ header {
   color: #000;
   content: ">";
 }
+.breadcrumb nav li.breadcrumb--active::before {
+  content: "|";
+}
+.breadcrumb nav li.breadcrumb--active + li {
+  display: none;
+}
 .breadcrumb a {
   color: #9f9f9f;
 }
