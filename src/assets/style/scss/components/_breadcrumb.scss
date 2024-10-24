@@ -1,0 +1,30 @@
+.breadcrumb {
+  background: $secondary-color;
+  padding: 1em 0 1em 1.5em;
+  nav {
+    ul {
+      display: flex;
+    }
+    li + li::before {
+      display: inline-block;
+      padding-right: 0.5rem;
+      padding-left: 0.5rem;
+      color: $black;
+      content: ">";
+    }
+  }
+  a {
+    color: #9f9f9f;
+  }
+}
+.breadcrumb--active {
+  a {
+    color: $black;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+    .breadcrumb {
+        background: $secondary-color;
+      }
+}

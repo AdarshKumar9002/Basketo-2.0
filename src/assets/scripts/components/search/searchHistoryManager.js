@@ -1,7 +1,7 @@
-import LocalStorageManager from '../../reusable/local-history-manager.js';
+import StorageManager from '../../reusable/storage-manager.js';
 import SvgIcons from '../../local/svg-icons.js';
 
-class SearchHistoryManager extends LocalStorageManager {
+class SearchHistoryManager extends StorageManager {
   constructor() {
     super();
     this.SEARCH_BOX_ELEMENT = document.querySelector('.search-box-container');
@@ -33,16 +33,13 @@ class SearchHistoryManager extends LocalStorageManager {
     history.unshift(searchEntry);
 
     // Save updated history list to local storage
-    LocalStorageManager.saveToLocalStorage(
-      'searchHistory',
-      JSON.stringify(history),
-    );
+    StorageManager.saveToStorage('searchHistory', JSON.stringify(history));
   }
 
   // Retrieve search history from local storage
   static fetchSearchHistory() {
     const history = JSON.parse(
-      LocalStorageManager.retrieveFromLocalStorage('searchHistory'),
+      StorageManager.retrieveFromStorage('searchHistory'),
     );
     return history;
   }
@@ -68,10 +65,7 @@ class SearchHistoryManager extends LocalStorageManager {
   static limitSearchHistory() {
     let history = SearchHistoryManager.fetchSearchHistory();
     const HISTORY_LENGTH = 5;
-    if (
-      history === null ||
-      history === undefined
-    ) {
+    if (history === null || history === undefined) {
       return 0;
     }
     if (history.length > HISTORY_LENGTH) {
@@ -108,7 +102,7 @@ class SearchHistoryManager extends LocalStorageManager {
     const updatedHistory = history.filter((entry) => entry !== historyEntry);
 
     // Save updated history list to local storage
-    LocalStorageManager.saveToLocalStorage(
+    StorageManager.saveToStorage(
       'searchHistory',
       JSON.stringify(updatedHistory),
     );

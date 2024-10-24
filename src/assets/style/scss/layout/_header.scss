@@ -36,13 +36,13 @@ header {
   left: 0;
   bottom: 0;
   width: 100%;
-  background: $secondary-color;
+  background: $secondary-color-lite;
   padding: 0.5em 1em;
   .user-interactions__userAuth {
     display: none;
   }
 }
-@import '../components/search-box';
+@import "../components/search-box";
 
 // Tablet Style
 @media screen and (min-width: 768px) {

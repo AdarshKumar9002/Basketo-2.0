@@ -12,7 +12,7 @@
 
     <!-- ========== Favicon ========== -->
     <!-- ========== CSS ========== -->
-    <link rel="stylesheet" href="./assets/style/css/home.css" />
+    <link rel="stylesheet" href="./assets/style/css/single-product-page.css" />
   </head>
   <body id="top">
     <!-- ========== Template(Added to Whislist/cart) ========== -->
@@ -244,131 +244,101 @@
       </div>
     </header>
 
-    <!-- ========== Hero Image ========== -->
-    <section class="hero">
-      <div class="hero__image">
-        <picture>
-          <!-- Mobile -->
-          <source media="(max-width: 767px)" srcset="./assets/img/hero-image3.jpg" type="image/jpg">
-          <!-- Tablets -->
-          <source media="(min-width: 768px) and (max-width: 1079px)" srcset="./assets/img/hero-image3.jpg" type="image/jpg">
-          <!-- PC small -->
-          <source media="(min-width: 1080px) and (max-width: 1439px)" srcset="./assets/img/hero-image3.jpg" type="image/jpg">
-          <!-- PC large -->
-          <source media="(min-width: 1440px)" srcset="./assets/img/hero-image3.jpg" type="image/jpg">
-
-          <img src="./assets/img/hero-image3.jpg" alt="img" />
-        </picture>
-      </div>
-      <div class="hero__content">
-        <h1>
-          Discover Our Latest <br />
-          Fashion Collection
-        </h1>
-        <a href="#top-products">Shop now</a>
-      </div>
+    <!-- ========== Breadcrumb ========== -->
+    <section class="breadcrumb">
+      <nav>
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li id="breadcrumb-section"><a href="">category</a></li>
+          <li id="breadcrumb-name" class="breadcrumb--active"><a href="">name</a></li>
+        </ul>
+      </nav>
     </section>
 
     <!-- ========== Main ========== -->
     <main>
-      <!-- == Top Categories == -->
-      <section class="categories-card" aria-label="Categories Cards">
-        <h2>Top Categories</h2>
-        <div class="categories-card__container flex" role="">
-          <!-- Women's clothing -->
-          <div
-            class="categories-card__item flex"
-            role="group"
-            aria-label="Women's Clothing Category Card"
-          >
-            <div class="categories-card__image">
-              <a href="#">
-                <img
-                  src="./assets/img/women's-clothing.jpg"
-                  alt="A women wearing brown leather jacket"
-                />
-              </a>
-            </div>
-            <div class="categories-card__details">
-              <a href="#">
-                <h3>Women's Clothing</h3>
-              </a>
-            </div>
-            <div class="separator"></div>
-          </div>
-          <!-- Men's clothing -->
-          <div
-            class="categories-card__item flex"
-            role="group"
-            aria-label="men's Clothing Category Card"
-          >
-            <div class="categories-card__image">
-              <a href="#">
-                <img
-                  src="./assets/img/men's-clothing.jpg"
-                  alt=" A man wearing black jacket"
-                />
-              </a>
-            </div>
-            <div class="categories-card__details">
-              <a href="#">
-                <h3>Men's Clothing</h3>
-              </a>
-            </div>
-            <div class="separator"></div>
-          </div>
-          <!-- Jewelery -->
-          <div
-            class="categories-card__item flex"
-            role="group"
-            aria-label="Jewelery Category Card"
-          >
-            <div class="categories-card__image">
-              <a href="#">
-                <img
-                  src="./assets/img/kids-clothing.jpg"
-                  alt="A diamond ring"
-                />
-              </a>
-            </div>
-            <div class="categories-card__details">
-              <a href="#">
-                <h3>Jewelery</h3>
-              </a>
-            </div>
-            <div class="separator"></div>
-          </div>
-          <!-- Smartphones -->
-          <div
-            class="categories-card__item flex"
-            role="group"
-            aria-label="Smartphones Category Card"
-          >
-            <div class="categories-card__image">
-              <a href="#">
-                <img src="./assets/img/smartphones.jpg" alt="Smartphones" />
-              </a>
-            </div>
-            <div class="categories-card__details">
-              <a href="#">
-                <h3>Smartphones</h3>
-              </a>
-            </div>
-            <div class="separator"></div>
-          </div>
+      <!-- === Product Image === -->
+      <section class="product-image">
+        <div>
+          <ul id="product-image-alt"></ul>
+        </div>
+        <div>
+          <ul id="product-image-main"></ul>
         </div>
       </section>
 
-      <!-- == Top Products == -->
-      <section id="top-products" class="products-card">
-        <h3>Top Products</h3>
-        <div class="products-card__container"></div>
-        <div class="products-card__btn-container flex">
-          <button class="btn-secondary" id="see-more-btn">See More</button>
+      <!-- === Product detail === -->
+      <section>
+        <h1 id="product-name"></h1>
+
+        <!-- Price -->
+        <div>
+          <span>Rs </span>
+          <span id="product-price"></span>
+        </div>
+
+        <!-- Rating -->
+        <div class="product-rating">
+          <div id="product-rating-star"></div>
+          <div id="product-rating-count"></div>
+        </div>
+
+        <!-- Description  -->
+        <div>
+          <p id="product-description"></p>
         </div>
       </section>
+      
+      <!-- === Delivery Related === -->
+      <section>
+        <div id="availability-status"></div>
+        <div id="dilivery-status"></div>
+        <div id="address-check">
+          <input type="number" id="pincode" placeholder="Enter Your Pincode">
+          <button>Check</button>
+        </div>
+        <div id="replacement-policy"></div>
+      </section>
+
+      <!-- === Interactions === -->
+      <section class="interactions">
+        <!-- Product counter -->
+        <div class="product-counter">
+          <button id="reduce-product-count">-</button>
+          <input type="number" id="product-count-display" />
+          <button id="increase-product-count">+</button>
+        </div>
+
+        <button id="add-to-cart">Add To Cart</button>
+
+        <div>
+          <button id="like-btn">🩷</button>
+          <button id="share-btn">👌</button>
+        </div>
+      </section>
+
+      <!-- === Information === -->
+      <section>
+        <div id="description"></div>
+        <div id="additional-info"></div>
+        <div id="review"></div>
+      </section>
+      
+      <!-- <section>
+        <nav>
+          <ul>
+            <li id="description-tab">Description</li>
+            <li id="additional-info-tab">Additional Information</li>
+            <li id="review-tab">Review</li>
+          </ul>
+        </nav>
+        <div id="description"></div>
+        <div id="additional-info"></div>
+        <div id="review"></div>
+      </section> -->
+    
+    
     </main>
-
     <!-- ========== Message Box ========== -->
     <div id="msg-box"></div>
 
@@ -455,7 +425,6 @@
     </footer>
 
     <!-- ========== Script ========== -->
-    <script type="module" src="./assets/scripts/pages/home.js"></script>
-
+    <script type="module" src="./assets/scripts/pages/single-product-page.js"></script>
   </body>
 </html>

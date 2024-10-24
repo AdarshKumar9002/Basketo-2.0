@@ -26,9 +26,9 @@ class HomePage {
     this.toggleNavigation = new ToggleNavigation();
     this.toggleSearch = new ToggleSearch();
     ToggleHref.toggle();
+    this.scrollEffect = new ScrollEffect();
 
     // Search
-    this.scrollEffect = new ScrollEffect();
     this.setSearchPostion = new SetSearchPostion();
     this.searchHistoryManager = new SearchHistoryManager();
 
@@ -39,24 +39,21 @@ class HomePage {
     this.renderProducts = new RenderTopProducts();
     this.SeeMoreTopProducts = new SeeMoreTopProducts();
 
-
     // Newsletter
     this.newsletter = new Newsletter();
 
     // Contain methods that will run after some time(3Sec)
     this.timeOutComponets();
-
   }
 
   // Run the components after 3 second
   timeOutComponets() {
     setTimeout(() => {
-      
-    // Wishlist
-    this.addToWishlist = new AddToWishList('product-card__like-btn');
+      // Wishlist
+      this.addToWishlist = new AddToWishList('product-card__like-btn');
 
-    // Cart
-    this.addToCartMessage = new AddToCartMessage('product-card__like-btn');
+      // Cart
+      this.addToCartMessage = new AddToCartMessage('product-card__like-btn');
     }, 3000);
   }
 }

@@ -25,9 +25,9 @@ header {
       &:hover,
       &:active,
       &:focus {
-        background-color: $secondary-color;
+        background-color: $secondary-color-lite;
       }
-      a{
+      a {
         font-size: 1.2rem;
       }
     }
