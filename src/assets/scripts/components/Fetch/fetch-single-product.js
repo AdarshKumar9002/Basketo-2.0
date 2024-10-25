@@ -30,7 +30,6 @@ class FetchSingleProduct {
     async fetchProduct() {
         const URL = FetchSingleProduct.createUrl();
         const productDetail = await this.apiCall.get(URL);
-        console.log(productDetail);
         return productDetail;
     }
 

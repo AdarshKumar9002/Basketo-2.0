@@ -15,7 +15,8 @@ import SearchHistoryManager from '../components/search/searchHistoryManager.js';
 
 // Newsletter
 import Newsletter from '../components/newsletter.js';
-import FetchSingleProduct from '../components/Fetch/fetch-single-product-page.js';
+import FetchSingleProduct from '../components/Fetch/fetch-single-product.js';
+import UpdateBreadcrumb from '../components/Breadcrumb/update-breadcrumg.js';
 
 class HomePage {
   constructor() {
@@ -32,6 +33,7 @@ class HomePage {
     // Breadcrumb
     // this.storePath = new StoreRetrivePath();
     // StoreRetrivePath.removeDublicatesPaths();
+    this.updateBreadcrumb = new UpdateBreadcrumb();
 
     // Newsletter
     this.newsletter = new Newsletter();
