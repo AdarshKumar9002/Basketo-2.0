@@ -15,6 +15,7 @@ import SearchHistoryManager from '../components/search/searchHistoryManager.js';
 
 // Newsletter
 import Newsletter from '../components/newsletter.js';
+import FetchSingleProduct from '../components/Fetch/fetch-single-product-page.js';
 
 class HomePage {
   constructor() {
@@ -35,6 +36,9 @@ class HomePage {
     // Newsletter
     this.newsletter = new Newsletter();
 
+    // Product 
+    this.getSignleProductDetail = new FetchSingleProduct(); 
+    
     // Contain methods that will run after some time(3Sec)
     // this.timeOutComponets();
 
