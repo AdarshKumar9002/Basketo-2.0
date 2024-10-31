@@ -1,4 +1,4 @@
-import FeaturedProducts from './products.js';
+import FeaturedProducts from '../fetch/products.js';
 
 class FilterProducts extends FeaturedProducts {
 

@@ -3,7 +3,6 @@ import ApiCalls from "../../reusable/api.js";
 class FetchSingleProduct {
     constructor() {
         this.apiCall = new ApiCalls();
-        this.fetchProduct();
     }
 
     static getParameterValue(paraName) {

@@ -1,5 +1,5 @@
 import SvgIcons from '../../local/svg-icons.js';
-import GenerateURL from './genrate-unique-product-url.js';
+import GenerateURL from '../utility/genrate-unique-product-url.js';
 
 class ProductCardHTML extends SvgIcons {
   constructor(id, img, title, rating, price, discount) {
@@ -76,7 +76,7 @@ class ProductCardHTML extends SvgIcons {
       'products-card__item flex',
     );
 
-    PRODUCT_CARD_ITEM_ELEMENT.id =this.productId;
+    PRODUCT_CARD_ITEM_ELEMENT.id = this.productId;
 
     const PRODUCT_IMG_CONTAINER_ELEMENT = this.cardImageContainer();
     const PRODUCT_DETAILS_CONTAINER_ELEMENT = this.productDetailsContainer();
@@ -156,7 +156,11 @@ class ProductCardHTML extends SvgIcons {
   productTitle() {
     const ANCOR_ELEMENT = ProductCardHTML.createElement('a');
     ANCOR_ELEMENT.href = GenerateURL.generateURL(this.productId, this.name);
-    const PRODUCT_NAME_ELEMENT = ProductCardHTML.createElement('h4', '', this.name);
+    const PRODUCT_NAME_ELEMENT = ProductCardHTML.createElement(
+      'h4',
+      '',
+      this.name,
+    );
     this.updateProductTitle(PRODUCT_NAME_ELEMENT);
     ANCOR_ELEMENT.appendChild(PRODUCT_NAME_ELEMENT);
     return ANCOR_ELEMENT;
@@ -179,37 +183,36 @@ class ProductCardHTML extends SvgIcons {
   productRatingStar() {
     const PRODUCT_RATING_STAR = ProductCardHTML.createElement(
       'div',
-      'products-card__rating-star'
+      'products-card__rating-star',
     );
-  
+
     const productRating = this.rating;
-  
+
     // Render full stars
     for (let i = 0; i < Math.floor(productRating); i += 1) {
       const star = ProductCardHTML.starIcon(100);
       PRODUCT_RATING_STAR.appendChild(star);
     }
-  
+
     // Render half star (if applicable)
     const halfStar = productRating - Math.floor(productRating);
-    if (halfStar > 0) {  
+    if (halfStar > 0) {
       const filledPercent = halfStar * 100;
-  
+
       const star = ProductCardHTML.starIcon(parseInt(filledPercent, 10));
-      
+
       PRODUCT_RATING_STAR.appendChild(star);
     }
-  
+
     // Render blank stars to make a total of 5
     const blankStars = 5 - Math.ceil(productRating); // Use Math.ceil to account for half-star
     for (let i = 0; i < blankStars; i += 1) {
-      const star = ProductCardHTML.starIcon(0); 
+      const star = ProductCardHTML.starIcon(0);
       PRODUCT_RATING_STAR.appendChild(star);
     }
-  
+
     return PRODUCT_RATING_STAR;
   }
-  
 
   // Product Total Review Count
   static productTotalRevies() {

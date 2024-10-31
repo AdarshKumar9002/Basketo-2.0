@@ -1,4 +1,4 @@
-import FetchSingleProduct from "../Fetch/fetch-single-product.js";
+import FetchSingleProduct from "../fetch/fetch-single-product.js";
 
 class UpdateBreadcrumb {
     constructor() {

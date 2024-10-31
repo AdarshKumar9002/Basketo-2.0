@@ -11,8 +11,8 @@ import SearchHistoryManager from '../components/search/searchHistoryManager.js';
 // Categories
 import GetCategories from '../components/categories/categories.js';
 // Products
-import RenderTopProducts from '../components/product/render-top-products.js';
-import SeeMoreTopProducts from '../components/product/see-more-product.js';
+import RenderTopProducts from '../components/render/render-top-products.js';
+import SeeMoreTopProducts from '../components/utility/see-more-product.js';
 // Wishlist
 import AddToWishList from '../components/wishlist/add-to-wishlist.js';
 // Cart

@@ -1,4 +1,4 @@
-import RenderProductCard from './render-product-card.js';
+import RenderProductCard from '../render/render-product-card.js';
 
 class SeeMoreTopProducts {
   constructor() {

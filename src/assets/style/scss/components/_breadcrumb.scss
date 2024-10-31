@@ -6,11 +6,12 @@
       display: flex;
     }
     li + li::before {
+      content: ">";
       display: inline-block;
       padding-right: 0.5rem;
       padding-left: 0.5rem;
       color: $black;
-      content: ">";
+      font-size: 0.7rem;
     }
     li.breadcrumb--active::before {
       content: "|";
@@ -21,6 +22,7 @@
   }
   a {
     color: #9f9f9f;
+    font-size: 0.7rem;
   }
 }
 .breadcrumb--active {
@@ -32,5 +34,8 @@
 @media screen and (min-width: 1080px) {
   .breadcrumb {
     background: $secondary-color;
+    a{
+      font-size: $font-size-s;
+    }
   }
 }

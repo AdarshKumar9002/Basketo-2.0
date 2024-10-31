@@ -1,5 +1,5 @@
-import ProductCardHTML from './product-card-html.js';
-import FilterProducts from './filter-products.js';
+import ProductCardHTML from '../markup/product-card-html.js';
+import FilterProducts from '../filter/filter-products.js';
 
 class RenderProductCard {
   static totalProductLoaded = 0;
@@ -15,7 +15,15 @@ class RenderProductCard {
   }
 
   // Create the product card and return its DOM element
-  static productsCardHTML(productId, img, title, description, price, discount, index) {
+  static productsCardHTML(
+    productId,
+    img,
+    title,
+    description,
+    price,
+    discount,
+    index,
+  ) {
     const cardHTML = new ProductCardHTML(
       productId,
       img,
@@ -49,7 +57,7 @@ class RenderProductCard {
           product.rating,
           product.price,
           discount,
-          index
+          index,
         ),
       );
     });
