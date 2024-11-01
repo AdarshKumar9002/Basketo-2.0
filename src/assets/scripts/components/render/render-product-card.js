@@ -10,7 +10,7 @@ class RenderProductCard {
 
   static apiUrl() {
     const skipProducts = RenderProductCard.totalProductLoaded;
-    const API_URL = `https://dummyjson.com/products?limit=20&skip=${skipProducts}&select=title,price,rating,images,discountPercentage`;
+    const API_URL = `https://dummyjson.com/products?limit=20&skip=${skipProducts}&select=title,price,rating,reviews,images,discountPercentage`;
     return API_URL;
   }
 
@@ -19,20 +19,21 @@ class RenderProductCard {
     productId,
     img,
     title,
-    description,
+    rating,
+    reviews,
     price,
     discount,
-    index,
   ) {
     const cardHTML = new ProductCardHTML(
       productId,
       img,
       title,
-      description,
+      rating,
+      reviews,
       price,
       discount,
     );
-    return cardHTML.renderCard(index);
+    return cardHTML.renderCard();
   }
 
   //   Append the cards to the container element
@@ -45,19 +46,18 @@ class RenderProductCard {
       `.${cardContainerElement}`,
     );
 
-    productList.forEach((product, index) => {
+    productList.forEach((product) => {
       const img = product.images[0];
       const discount = Math.round(product.discountPercentage);
-
       PRODUCT_CARD_CONTAINER_ELEMENT.appendChild(
         RenderProductCard.productsCardHTML(
           product.id,
           img,
           product.title,
           product.rating,
+          product.reviews,
           product.price,
           discount,
-          index,
         ),
       );
     });

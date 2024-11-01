@@ -551,6 +551,60 @@ header {
     flex-direction: row;
   }
 }
+#product-name {
+  font-family: "Poppins", "Source Code Pro", sans-serif;
+  font-size: 1.2rem;
+  color: #000;
+}
+
+#product-price-container span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #9F9F9F;
+}
+
+.product-rating {
+  justify-content: flex-start;
+}
+
+#product-rating-star svg {
+  width: 1em;
+}
+
+#product-rating-count {
+  font-size: 0.8rem;
+  color: #9F9F9F;
+}
+#product-rating-count::before {
+  content: "|";
+  margin-left: 0.3em;
+  margin-right: 0.3em;
+}
+
+#product-description {
+  color: #000;
+  font-size: 0.82rem;
+}
+
+@media screen and (min-width: 768px) {
+  #product-name {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  #product-name {
+    font-size: 2rem;
+    font-size: 2rem;
+  }
+  #product-description {
+    font-size: 1rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  #product-name {
+    font-size: 2.5rem;
+  }
+}
 #msg-box {
   display: flex;
   align-items: center;

@@ -1,6 +1,8 @@
 import ProductImage from './product-image-markup.js';
 
 class SingleProductPageMarkup {
+
+  // Product Image
   static productImageFragmentStorage(productImg, title) {
     const FRAGMENT_ELEMENT = document.createDocumentFragment();
     const ALT_IMAGE_ELEMENTS = SingleProductPageMarkup.productAltImage(
