@@ -13,6 +13,7 @@
 }
 
 .product-rating {
+  margin-top: 0.2em;
   justify-content: flex-start;
 }
 
@@ -33,19 +34,29 @@
 }
 
 #product-description {
+  margin-top: 0.5em;
   color: $black;
   font-size: 0.82rem;
 }
 
 @media screen and (min-width: 768px) {
   #product-name {
-    font-size: $font-size-m;
+    font-size: $primary-font-size;
+  }
+
+  #product-price-container {
+    span {
+      font-size: $font-size-m;
+    }
+  }
+
+  #product-description {
+    font-size: $font-size-s;
   }
 }
 
 @media screen and (min-width: 1280px) {
   #product-name {
-    font-size: 2rem;
     font-size: $primary-font-size;
   }
   #product-description {

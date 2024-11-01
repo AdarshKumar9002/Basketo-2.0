@@ -1,0 +1,29 @@
+@media screen and (min-width: 1023px) {
+    .layout-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);  
+        grid-template-rows: auto;  
+        gap: 16px; 
+    }
+
+    .product-image {
+        grid-column: 1;  // First column
+        grid-row: 1 / span 3;  // Span three rows
+    }
+
+    .product-details {
+        grid-column: 2;  // Second column
+        grid-row: 1;  // First row
+    }
+
+    .product-delivery-info {
+        grid-column: 2;  // Second column
+        grid-row: 2;  // Second row
+    }
+
+    .interaction {
+        grid-column: 2;  // Second column
+        grid-row: 3;  // Third row
+    }
+}
+
