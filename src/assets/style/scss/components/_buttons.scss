@@ -27,6 +27,37 @@ button {
   line-height: 1.5;
 }
 
+.simple-btn {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #e8e8e8;
+  border-radius: 0.5rem;
+  background: none;
+  cursor: pointer;
+  color: $black;
+  transition: background-color 0.2s;
+}
+
+.simple-btn:hover {
+  background-color: #f5f5f5;
+}
+
+.add-to-cart-btn {
+  flex: 1;
+  padding: 1rem 2rem;
+  background-color: $black;
+  color: $white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #333;
+}
+
+
 // Desktop 1024px
 @media screen and (min-width: 1024px) {
   .btn-primary {

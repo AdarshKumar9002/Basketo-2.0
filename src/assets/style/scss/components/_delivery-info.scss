@@ -9,11 +9,12 @@
   gap: 0.7em;
   input {
     border: none;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid #e8e8e8;
     padding: 0.15em 0.3em;
   }
   button {
-    border: 1px solid;
+    flex: 0;
+    border: 2px solid #e8e8e8;
     border-radius: 4px;
     padding: 0.3em 1em;
   }
@@ -28,7 +29,6 @@
 }
 
 @media screen and (min-width: 1023px) {
-  
 .address-check {
   justify-content: flex-start;
 }

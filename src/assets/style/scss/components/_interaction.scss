@@ -1,0 +1,24 @@
+.interactions {
+  flex-direction: column;
+  margin-top: 1em;
+  gap: 1em;
+  &+hr {
+    margin: 1em 0;
+  }
+}
+
+.interactions__like-and-share {
+  display: flex;
+  gap: 0.8em;
+  button {
+    display: flex;
+  }
+}
+
+
+@media screen and (min-width: 1023px) {
+  .interactions {
+    flex-direction: row;
+    margin-right: 1em;
+  }
+}

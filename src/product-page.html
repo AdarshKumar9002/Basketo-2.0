@@ -260,61 +260,104 @@
     <!-- ========== Main ========== -->
     <main>
       <div class="layout-container">
-      <!-- === Product Image === -->
-      <section class="product-image">
-      </section>
+        <!-- === Product Image === -->
+        <section class="product-image"></section>
 
-      <!-- === Product detail === -->
-      <section class="product-details">
-        <h1 id="product-name"></h1>
+        <!-- === Product detail === -->
+        <section class="product-details">
+          <h1 id="product-name"></h1>
 
-        <!-- Price -->
-        <div id="product-price-container">
-          <span>&dollar; </span>
-          <span id="product-price"></span>
-        </div>
+          <!-- Price -->
+          <div id="product-price-container">
+            <span>&dollar; </span>
+            <span id="product-price"></span>
+          </div>
 
-        <!-- Rating -->
-        <div class="product-rating flex">
-          <div id="product-rating-star"></div>
-          <div id="product-rating-count"></div>
-        </div>
+          <!-- Rating -->
+          <div class="product-rating flex">
+            <div id="product-rating-star"></div>
+            <div id="product-rating-count"></div>
+          </div>
 
-        <!-- Description  -->
-        <div>
-          <p id="product-description"></p>
-        </div>
-      </section>
+          <!-- Description  -->
+          <div>
+            <p id="product-description"></p>
+          </div>
+        </section>
 
-      <!-- === Delivery Related === -->
-      <section class="product-delivery-info">
-        <div id="availability-status"></div>
-        <div id="dilivery-status"></div>
-        <div class="address-check flex">
-          <input type="number" id="pincode" placeholder="Enter Your Pincode" />
-          <button class="">Check</button>
-        </div>
-        <div id="replacement-policy"></div>
-      </section>
+        <!-- === Delivery Related === -->
+        <section class="product-delivery-info">
+          <div id="availability-status"></div>
+          <div id="dilivery-status"></div>
+          <div class="address-check flex">
+            <input
+              type="number"
+              id="pincode"
+              placeholder="Enter Your Pincode"
+            />
+            <button class="simple-btn">Check</button>
+          </div>
+          <div id="replacement-policy"></div>
+        </section>
 
-      <!-- === Interactions === -->
-      <section class="interactions">
-        <!-- Product counter -->
-        <div class="product-counter">
-          <button id="reduce-product-count">-</button>
-          <input type="number" id="product-count-display" />
-          <button id="increase-product-count">+</button>
-        </div>
+        <!-- === Interactions === -->
+        <section class="interactions flex">
+          <!-- Product counter -->
+          <div class="product-counter">
+            <button
+              class="product-counter__quantity-control-btn"
+              id="reduce-product-count"
+            >
+              -
+            </button>
+            <input type="number" id="product-count-display" value="1" />
+            <button
+              class="product-counter__quantity-control-btn"
+              id="increase-product-count"
+            >
+              +
+            </button>
+          </div>
 
-        <button id="add-to-cart">Add To Cart</button>
+          <button class="add-to-cart-btn" id="add-to-cart">Add To Cart</button>
 
-        <div>
-          <button id="like-btn">🩷</button>
-          <button id="share-btn">👌</button>
-        </div>
-      </section>
-
-    </div>
+          <div class="interactions__like-and-share">
+            <button class="simple-btn" id="like-btn">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                class="like-icon"
+              >
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                ></path>
+              </svg>
+            </button>
+            <button class="simple-btn" id="share-btn">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                class="share-icon"
+              >
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+              </svg>
+            </button>
+          </div>
+        </section>
+        <hr>
+      </div>
 
       <!-- === Information === -->
       <section>
