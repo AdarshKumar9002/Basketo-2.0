@@ -1,0 +1,35 @@
+.product-delivery-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.address-check {
+  margin-top: 1em;
+  flex-direction: column;
+  gap: 0.7em;
+  input {
+    border: none;
+    border-bottom: 1px solid;
+    padding: 0.15em 0.3em;
+  }
+  button {
+    border: 1px solid;
+    border-radius: 4px;
+    padding: 0.3em 1em;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  
+.address-check {
+  flex-direction: row;
+  gap: 1em;
+}
+}
+
+@media screen and (min-width: 1023px) {
+  
+.address-check {
+  justify-content: flex-start;
+}
+}
