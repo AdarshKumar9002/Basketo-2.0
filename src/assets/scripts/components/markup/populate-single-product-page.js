@@ -12,7 +12,6 @@ class PopulateSingleProductPage {
     this.populateImageElements();
     this.populateProductDetails();
     this.populateProductInformationSection();
-    this.productAdditionalInfo();
   }
 
   // Initializes DOM element references for product page
@@ -26,10 +25,11 @@ class PopulateSingleProductPage {
       'product-description',
     );
 
-    this.PRODUCT_INFORMATION_DESCRIPTION_ELEMENT = document.getElementById(
-      'description',
-    );
-    this.PRODUCT_ADDITIONAL_INFORMATION = document.getElementById('additional-info');
+    this.PRODUCT_INFORMATION_DESCRIPTION_ELEMENT =
+      document.getElementById('description');
+    this.PRODUCT_ADDITIONAL_INFORMATION_ELEMENT =
+      document.getElementById('additional-info');
+    this.PRODUCT_REVIES_ELEMENT = document.getElementById('reviews');
   }
 
   // Fetches product data asynchronously
@@ -63,11 +63,12 @@ class PopulateSingleProductPage {
     await this.productStarRating();
     await this.productRatingCount();
     await this.productDescription();
-
   }
 
   async populateProductInformationSection() {
     this.productInfoDescription();
+    this.productAdditionalInfo();
+    this.productReview();
   }
 
   // Title
@@ -88,7 +89,9 @@ class PopulateSingleProductPage {
 
   // Rating
   async productStarRating() {
-    const STAR_RATING_ELEMENT = this.PRODUCT_RATING_ELEMENT.querySelector('#product-rating-star'); // any error with this line 
+    const STAR_RATING_ELEMENT = this.PRODUCT_RATING_ELEMENT.querySelector(
+      '#product-rating-star',
+    ); // any error with this line
     const product = await this.productData();
     const { rating } = product;
     const STAR_ICONS = ProductRatingMarkup.ratingStars(rating);
@@ -98,7 +101,9 @@ class PopulateSingleProductPage {
 
   // Rating Count
   async productRatingCount() {
-    const STAR_RATING_COUNT_ELEMENT = this.PRODUCT_RATING_ELEMENT.querySelector('#product-rating-count');
+    const STAR_RATING_COUNT_ELEMENT = this.PRODUCT_RATING_ELEMENT.querySelector(
+      '#product-rating-count',
+    );
     const product = await this.productData();
     const { rating } = product;
     const ratingCount = `${rating} Customer Review`;
@@ -122,8 +127,17 @@ class PopulateSingleProductPage {
 
   async productAdditionalInfo() {
     const additionalData = await this.productAdditonalData();
-    const additionalDataElement = SingleProductPageMarkup.productAdditionalInfoMarkup(additionalData);
-    this.PRODUCT_ADDITIONAL_INFORMATION.appendChild(additionalDataElement);
+    const additionalDataElement =
+      SingleProductPageMarkup.productAdditionalInfoMarkup(additionalData);
+    this.PRODUCT_ADDITIONAL_INFORMATION_ELEMENT.appendChild(additionalDataElement);
+  }
+
+  async productReview() {
+    const product = await this.productData();
+    const { reviews } = product;
+
+    const reviewElement = SingleProductPageMarkup.productReview(reviews);
+    this.PRODUCT_REVIES_ELEMENT.appendChild(reviewElement);
   }
 }
 

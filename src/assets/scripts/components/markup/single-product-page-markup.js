@@ -1,5 +1,6 @@
 import AdditionalInfoTabelMarkup from './additional-info-markup.js';
 import ProductImage from './product-image-markup.js';
+import ProductReviewMarkup from './product-review-markup.js';
 
 class SingleProductPageMarkup {
   // Product Image
@@ -61,6 +62,21 @@ class SingleProductPageMarkup {
     const dataArray =
       SingleProductPageMarkup.productAdditionalInfoData(dataObject);
     return AdditionalInfoTabelMarkup.tabel(dataArray);
+  }
+
+  // Review
+  static productReview(reviews) {
+    const REVIEWS_FRAGMENT = document.createDocumentFragment();
+    reviews.forEach((review) => {
+      const name = review.reviewerName;
+      const { rating } = review;
+      const { comment } = review;
+      let { date } = review;
+      [date] = date.split('T');
+      const element = ProductReviewMarkup.reviewContainer(name, rating, comment, date);
+      REVIEWS_FRAGMENT.append(element);
+    });
+    return REVIEWS_FRAGMENT;
   }
 }
 
