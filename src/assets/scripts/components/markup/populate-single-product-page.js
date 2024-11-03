@@ -1,3 +1,4 @@
+import FetchAndCreateAdditonalData from '../fetch/fetch-and-create-additonal-data.js';
 import FetchSingleProduct from '../fetch/fetch-single-product.js';
 import ProductRatingMarkup from './product-rating-markup.js';
 import SingleProductPageMarkup from './single-product-page-markup.js';
@@ -5,10 +6,13 @@ import SingleProductPageMarkup from './single-product-page-markup.js';
 class PopulateSingleProductPage {
   constructor() {
     this.singleProductData = new FetchSingleProduct();
+    this.additonalData = new FetchAndCreateAdditonalData();
 
     this.init();
     this.populateImageElements();
     this.populateProductDetails();
+    this.populateProductInformationSection();
+    this.productAdditionalInfo();
   }
 
   // Initializes DOM element references for product page
@@ -21,11 +25,22 @@ class PopulateSingleProductPage {
     this.PRODUCT_DESCRIPTION_ELEMENT = document.getElementById(
       'product-description',
     );
+
+    this.PRODUCT_INFORMATION_DESCRIPTION_ELEMENT = document.getElementById(
+      'description',
+    );
+    this.PRODUCT_ADDITIONAL_INFORMATION = document.getElementById('additional-info');
   }
 
   // Fetches product data asynchronously
   async productData() {
     const product = await this.singleProductData.fetchProduct();
+    return product;
+  }
+
+  // Fetches product data asynchronously
+  async productAdditonalData() {
+    const product = await this.additonalData.updatedData();
     return product;
   }
 
@@ -43,16 +58,20 @@ class PopulateSingleProductPage {
   }
 
   async populateProductDetails() {
-    await this.populateProductName();
-    await this.populateProductPrice();
-    await this.populateProductStarRating();
-    await this.populateProductRatingCount();
-    await this.populateProductDescription();
+    await this.productName();
+    await this.productPrice();
+    await this.productStarRating();
+    await this.productRatingCount();
+    await this.productDescription();
 
   }
 
+  async populateProductInformationSection() {
+    this.productInfoDescription();
+  }
+
   // Title
-  async populateProductName() {
+  async productName() {
     const product = await this.productData();
     const { title } = product;
 
@@ -60,7 +79,7 @@ class PopulateSingleProductPage {
   }
 
   // Price
-  async populateProductPrice() {
+  async productPrice() {
     const product = await this.productData();
     const { price } = product;
 
@@ -68,7 +87,7 @@ class PopulateSingleProductPage {
   }
 
   // Rating
-  async populateProductStarRating() {
+  async productStarRating() {
     const STAR_RATING_ELEMENT = this.PRODUCT_RATING_ELEMENT.querySelector('#product-rating-star'); // any error with this line 
     const product = await this.productData();
     const { rating } = product;
@@ -78,7 +97,7 @@ class PopulateSingleProductPage {
   }
 
   // Rating Count
-  async populateProductRatingCount() {
+  async productRatingCount() {
     const STAR_RATING_COUNT_ELEMENT = this.PRODUCT_RATING_ELEMENT.querySelector('#product-rating-count');
     const product = await this.productData();
     const { rating } = product;
@@ -87,11 +106,24 @@ class PopulateSingleProductPage {
     STAR_RATING_COUNT_ELEMENT.textContent = ratingCount;
   }
 
-  async populateProductDescription() {
+  async productDescription() {
     const product = await this.productData();
     const { description } = product;
 
     this.PRODUCT_DESCRIPTION_ELEMENT.textContent = description;
+  }
+
+  async productInfoDescription() {
+    const product = await this.productData();
+    const { description } = product;
+
+    this.PRODUCT_INFORMATION_DESCRIPTION_ELEMENT.textContent = description;
+  }
+
+  async productAdditionalInfo() {
+    const additionalData = await this.productAdditonalData();
+    const additionalDataElement = SingleProductPageMarkup.productAdditionalInfoMarkup(additionalData);
+    this.PRODUCT_ADDITIONAL_INFORMATION.appendChild(additionalDataElement);
   }
 }
 

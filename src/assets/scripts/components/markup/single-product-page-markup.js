@@ -1,7 +1,7 @@
+import AdditionalInfoTabelMarkup from './additional-info-markup.js';
 import ProductImage from './product-image-markup.js';
 
 class SingleProductPageMarkup {
-
   // Product Image
   static productImageFragmentStorage(productImg, title) {
     const FRAGMENT_ELEMENT = document.createDocumentFragment();
@@ -50,6 +50,17 @@ class SingleProductPageMarkup {
   // Product Image Dot Navigation
   static productImageNav(productImg) {
     return ProductImage.imageNav(productImg);
+  }
+
+  // Additional info
+  static productAdditionalInfoData(dataObject) {
+    return Object.entries(dataObject);
+  }
+
+  static productAdditionalInfoMarkup(dataObject) {
+    const dataArray =
+      SingleProductPageMarkup.productAdditionalInfoData(dataObject);
+    return AdditionalInfoTabelMarkup.tabel(dataArray);
   }
 }
 
